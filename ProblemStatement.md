@@ -1,5 +1,9 @@
 # Problem Statement
 
+**Visualizing contribution to a community and interacting with them in a physical form is challenging.**
+
+**Our solution offering both visualization and physical interaction with community Github contributions data.**
+
 ## What is the problem
 
 Since the beginning of internet graphics, graphs have been the go to for data visualization and analysis. However with more complex data and more data parameters, graphs have become more and more complex and now require a sufficient skill level to visualize, understand and analyze.
