@@ -1,0 +1,52 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Asap';
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root{
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+#root > div{
+  height: 100%;
+  width: 100%;
+}
+
+ul, ol{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  text-decoration: none;
+}
+a:visited{
+  color: inherit;
+  text-decoration: none;
+}
+
+button{
+  border-width: 0;
+  border-style: none;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+input, textarea{
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+input[type="radio"], input[type="checkbox"], button{
+  cursor: pointer;
+}
