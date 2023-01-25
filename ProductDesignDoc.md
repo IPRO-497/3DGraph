@@ -40,7 +40,7 @@ Students, Hikers, Professors, organizations, writers, ...e.t.c.
 - 3D print the displayed 3D model
 - Choose 3D model of choice
 
-# Top Two Scenarios
+# Top Four Scenarios
 
 ## Scenario 1
 
@@ -56,18 +56,15 @@ Tomiwa spends an unhealthy amount of time on github, managing projects and contr
 
 ## Scenario 4
 
-Sufyan is a huge space fan and follows NASA all the time. We would like to replenish this love for
-outer space by printing him a 3D rocket. We will fetch data from NASA website on the 
-launchoff velocities (vx, vy, vz). NASA are great they already provide us with the 3D data, we will
-use these velocities to find the direction of the rocket before it exits planet earth.
-We create a 3D model of a rocket and place its tip to the relative direction that it exited earth.
-Now Sufyan can 3D print the rocket with its tip in the direction it were to exit our beloved planet 
-earth. Dream come true for Sufyan!
+Sufyan is a huge space fan and pulls all nighters for every spaceship launch. He's been preocupied with his new job and has less and less time to stargaze. While reminiscing he realized he might have to keep his hobby to the side and would love to immortalize his last launch. He came to our site and requested a live 3D model of the rocket at the peak of it's escape velocity. We fetched data from NASA's website on the launchoff velocities (vx, vy, vz). NASA's API was extremely helpful as it generously gave us the data needed which we used to place the 3D rocket model at the perfect angle captured in that beautiful moment where another spaceship left the pull of earth. Now Sufyan can reminisce on his childhood days and times when his biggest problems was how much caffeine was needed to keep a 13 year old boy awake through the night. Dream on Sufyan!
 
 # Team Members
 
 | Name |	Location	| Time zone offset from Chicago (Chicago is 0 offset)|
+| --- | --- | --- |
 | Mbargou Gueye | Illinois, Chicago | 0 |
-| --- | --- | --- |
-| --- | --- | --- |
-| --- | --- | --- |
+| Nadia Ahmed | Illinois, Chicago | 0 |
+| Rabia Ahmed | Illinois, Chicago | 0 |
+| Sufyan Khan | Illinois, Chicago | 0 |
+| Tomiwa Ibrahim | Illinois, Chicago | 0 |
+| Zain Fahrat | Illinois, Chicago | 0 |
