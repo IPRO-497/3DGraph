@@ -99,16 +99,16 @@ We would like to develop a web application that can display given data in 3D for
 
 | Week                                                | Sprint Leader |
 | --------------------------------------------------- | ---------------------- |
-| 1 - Problem Framing - Web Design                    | Tomiwa                 |
-| 2 - Problem Framing - 3D Printing                   | Sufyan                 |
-| 3 - Problem Framing -  Graphics Designer            | Nadia + Rabia + Mbargou|
-| 4 - Problem Framing -  Data Analysis                | Zain                   |
+| 1 - Problem Framing -  Data Analysis                | Zain + Tomiwa          |
+| 2 - Problem Framing - Web Design                    | Tomiwa                 |
+| 3 - Problem Framing - 3D Printing                   | Sufyan                 |
+| 4 - Problem Framing -  Graphics Designer            | Nadia + Rabia + Mbargou|
 | 5 - Think, build, test, and demo for midterm        | All team members       |
 | 6 - Think, build, test, and demo for midterm        | All team members       |
 | 7 - Think, build, test, and demo for midterm        | All team members       |
 | 8 - Think, build, test, and demo for midterm        | All team members       |
 | 9 - Think, build, test, and demo for final          | All team members       |
-| 10 - Think, build, test, and demo for final	        |  All team members      |
+| 10 - Think, build, test, and demo for final	        | All team members       |
 | 11 - Think, build, test, and demo for final         | All team members       |
 | 12 - Think, build, test, and demo for final         | All team members       |
 | 13 - Think, build, test, and demo for final         | All team members       |
