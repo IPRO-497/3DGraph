@@ -4,7 +4,7 @@
 
 # Customer
 
-- Web Users
+- Web Users of - GitHub, LeetCode
 - 3D Enthusiasts
 - Collectors
 
@@ -14,7 +14,7 @@ Our Customers are professionals and students alike with a lot of work/achievemen
 
 ## Other customer(s) or stakeholder(s)
 
-Students, Hikers, Professors, organizations, writers, ...e.t.c.
+Students, Hikers, Professors, Organizations, Writers, ...e.t.c.
 
 # Application type (web app, mobile, website, native client, …)
 
@@ -39,7 +39,7 @@ Students, Hikers, Professors, organizations, writers, ...e.t.c.
 # Top Application Capabilities
 
 - Fetch different types of data on websites selected
-- Transform data from 2D to 3D reducing to the complexity
+- Transform data from 2D to 3D reducing the complexity
 - Display 3D display of data fetched from the website
 - 3D print the displayed 3D model
 - Choose 3D model of choice
@@ -52,11 +52,11 @@ Zain's back from a long jog. Sweaty, tired and exhausted. He plops on his bed an
 
 ## Scenario 2
 
-Sufyan's been racking his head about this new data brought to him. He's a HR employee and a damn good one at that! With little training on data analysis this insane amount of data that spans the whole year s enough to give him a tough break. Luckily he's heard of a website that displays data intuitively and in a physical human way. With the 3d model as a reference he easily wraps his around the insane (365) amount of data and has more than enough time to explain to his HR colleagues.
+Tomiwa spends an unhealthy amount of time on github, managing projects and contributing to cutting edge softwares. He feels really proud about this and would like to commemorate this achievement forever. In order achieve his dream we offer to fetch all his contributions from github and visualize them as an elegant 3D model which he can view at anytime! Not only can Tomiwa see this 3D model and commemorate his GitHub contributions forever, it turns out it's a great conversation starter and now his colleagues can't stop asking him how he got his!
 
 ## Scenario 3
 
-Tomiwa spends an unhealthy amount of time on github, managing projects and contributing to cutting edge softwares. He feels really proud about this and would like to commemorate this achievement forever. In order achieve his dream we offer to fetch all his contributions from github and visualize them as an elegant 3D model which he can view at anytime! Not only can Tomiwa see this 3D model and commemorate his GitHub contributions forever, it turns out it's a great conversation starter and now his colleagues can't stop asking him how he got his!
+Sufyan's been racking his head about this new data brought to him. He's a HR employee and a damn good one at that! With little training on data analysis this insane amount of data that spans the whole years enough to give him a tough break. Luckily he's heard of a website that displays data intuitively and in a physical human way. With the 3d model as a reference he easily wraps his around the insane (365) amount of data and has more than enough time to explain to his HR colleagues.
 
 ## Scenario 4
 
@@ -118,4 +118,3 @@ We would like to develop a web application that can display given data in 3D for
 | 13 - Think, build, test, and demo for final         | All team members       |
 | 14 - Presentation dry run                           | All team members       |
 | 15 - Presentation                                   | All team members       |
-| --------------------------------------------------- | ---------------------- |
