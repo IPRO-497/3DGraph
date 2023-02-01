@@ -4,9 +4,9 @@
 
 # Customer
 
-Web Users
-3D Enthusiasts
-Collectors
+- Web Users
+- 3D Enthusiasts
+- Collectors
 
 ## Description
 
