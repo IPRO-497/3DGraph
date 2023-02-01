@@ -4,6 +4,10 @@
 
 # Customer
 
+Web Users
+3D Enthusiasts
+Collectors
+
 ## Description
 
 Our Customers are professionals and students alike with a lot of work/achievement that are displayed poorly, giving them a very rough and complex understanding of what they have done.
