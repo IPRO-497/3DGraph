@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Block } from './pages/Block';
+import { Github } from './pages/Github';
 import { Home } from './pages/Home';
 import { LeetCode } from './pages/LeetCode';
 
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/block" element={<Block />} />
         <Route exact path="/leetcode" element={<LeetCode />} />
+        <Route exact path="/github" element={<Github />} />
       </Routes>
     </Router>
   );
