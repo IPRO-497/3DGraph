@@ -1,9 +1,9 @@
 export const convert = (data, year) => {
   const newData = []
-  const firstDate = new Date("Jan 1 2022").getTime()
-  const lastDate = new Date("Dec 31 2022").getTime()
+  const firstDate = new Date(`Jan 1 ${year}`).getTime()
+  const lastDate = new Date(`Dec 31 ${year}`).getTime()
   const count = 86400000
-  let date = new Date("Jan 1 2022").getDay()
+  let date = new Date(`Jan 1 ${year}`).getDay()
   let week = 0
   let day = 0
   let timezone = firstDate + day * count
