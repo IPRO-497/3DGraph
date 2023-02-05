@@ -1,7 +1,7 @@
 const handler = async (event) => {
   try {
-    const user = "tayomide"
-    const year = 2022
+    const name = event.queryStringParameters.name
+    const year = parseInt(event.queryStringParameters.year)
     let reply
     const query = `
       query User($login: String!, $from: DateTime, $to: DateTime) {
@@ -21,7 +21,7 @@ const handler = async (event) => {
     `
     const variables = `
       {
-        "login": "${user}",
+        "login": "${name}",
         "from": "${year}-01-01T00:00:00.000Z",
         "to": "${year+1}-01-01T00:00:00.000Z"
       }
