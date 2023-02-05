@@ -22,7 +22,5 @@ export const convert = (data, year) => {
     if(parsedData[(timezone - 21600000)/1000])newData[week][date] = parsedData[(timezone - 21600000)/1000]
     updateTime()
   }
-  console.log(day, date)
-
   return newData
 }
