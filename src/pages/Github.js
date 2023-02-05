@@ -15,7 +15,7 @@ export const Github = () => {
     .then(response => {
       setConvertedData(converter.convert(response))
     })
-  }, [])
+  }, [params])
   return (
     <Canvas>
       <OrbitControls />

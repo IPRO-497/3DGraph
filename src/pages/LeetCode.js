@@ -13,7 +13,7 @@ export const LeetCode = () => {
     .then(response => {
       setConvertedData(converter.convert(response))
     })
-  }, [])
+  }, [params])
   return (
     <Canvas>
       <OrbitControls />
