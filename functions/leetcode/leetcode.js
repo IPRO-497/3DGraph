@@ -2,7 +2,8 @@
 const handler = async (event) => {
   try {
     const GITHUB_TOKEN = process.env.GITHUB_TOKEN
-    const username = "tayomide"
+    const username = event.queryStringParameters.name
+    const year = event.queryStringParameters.year
     let reply
     const query = `
       query userProfileCalendar($username: String!, $year: Int) {
@@ -27,7 +28,7 @@ const handler = async (event) => {
     const variables = `
       {
         "username": "${username}",
-        "year": "2022"
+        "year": "${year}"
       }
     `
   
