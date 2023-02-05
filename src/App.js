@@ -22,8 +22,8 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/block" element={<Block />} />
-        <Route exact path="/leetcode" element={<LeetCode />} />
-        <Route exact path="/github" element={<Github />} />
+        <Route exact path="/leetcode/:name/:year" element={<LeetCode />} />
+        <Route exact path="/github/:name/:year" element={<Github />} />
       </Routes>
     </Router>
   );
