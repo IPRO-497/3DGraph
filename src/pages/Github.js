@@ -1,7 +1,6 @@
 import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-import React from 'react'
-import { GithubGroup } from '../components/GithubGroup'
+import { YearWeekDayGroup } from '../components/YearWeekDayGroup'
 
 export const Github = () => {
   const data = require("../data/GithubDummy").data
@@ -10,7 +9,7 @@ export const Github = () => {
   return (
     <Canvas>
       <OrbitControls />
-      <GithubGroup convertedData={convertedData}/>
+      <YearWeekDayGroup convertedData={convertedData} username="tayomide" year="2022" website="github" />
     </Canvas>
   )
 }
