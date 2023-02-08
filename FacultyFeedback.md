@@ -13,6 +13,9 @@
 ## Week 4 ##
 
 ## Week 5 ##
+- Make sure stories have owners (one to two max)
+- Make sure stories have acceptance criterion
+- Break down big stories like "Add AI to website"  and even the acceptance criterion "Learn machine learning and artificial intelligence" are giant and need to broken into smaller stories.
 
 ## Week 6 ##
 
