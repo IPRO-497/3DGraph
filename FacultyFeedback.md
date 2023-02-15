@@ -18,6 +18,9 @@
 - Break down big stories like "Add AI to website"  and even the acceptance criterion "Learn machine learning and artificial intelligence" are giant and need to broken into smaller stories.
 
 ## Week 6 ##
+- Make sure the sprint review lead creates the following in Github -https://github.com/mschray/IPro497Sample/blob/main/Course%20Content/SprintReviewProjectViews.md
+- Make sure stories have acceptance criteria
+- Take a look at the midterm presentation deck so you know what is in it -https://github.com/mschray/IPro497Sample/blob/main/Course%20Content/Mid%20course%20presentation%20template.pptx
 
 ## Week 7 ##
 
