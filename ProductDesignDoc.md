@@ -54,14 +54,6 @@ Zain's back from a long jog. Sweaty, tired and exhausted. He plops on his bed an
 
 Tomiwa spends an unhealthy amount of time on github, managing projects and contributing to cutting edge softwares. He feels really proud about this and would like to commemorate this achievement forever. In order achieve his dream we offer to fetch all his contributions from github and visualize them as an elegant 3D model which he can view at anytime! Not only can Tomiwa see this 3D model and commemorate his GitHub contributions forever, it turns out it's a great conversation starter and now his colleagues can't stop asking him how he got his!
 
-## Scenario 3
-
-Sufyan's been racking his head about this new data brought to him. He's a HR employee and a damn good one at that! With little training on data analysis this insane amount of data that spans the whole years enough to give him a tough break. Luckily he's heard of a website that displays data intuitively and in a physical human way. With the 3d model as a reference he easily wraps his around the insane (365) amount of data and has more than enough time to explain to his HR colleagues.
-
-## Scenario 4
-
-Sufyan is a huge space fan and pulls all nighters for every spaceship launch. He's been preocupied with his new job and has less and less time to stargaze. While reminiscing he realized he might have to keep his hobby to the side and would love to immortalize his last launch. He came to our site and requested a live 3D model of the rocket at the peak of it's escape velocity. We fetched data from NASA's website on the launchoff velocities (vx, vy, vz). NASA's API was extremely helpful as it generously gave us the data needed which we used to place the 3D rocket model at the perfect angle captured in that beautiful moment where another spaceship left the pull of earth. Now Sufyan can reminisce on his childhood days and times when his biggest problems was how much caffeine was needed to keep a 13 year old boy awake through the night. Dream on Sufyan!
-
 # Team Members
 
 | Name |	Location	| Time zone offset from Chicago (Chicago is 0 offset)|
