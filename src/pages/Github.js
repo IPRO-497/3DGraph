@@ -3,8 +3,8 @@ import { Canvas } from '@react-three/fiber'
 import { YearWeekDayGroup } from '../components/YearWeekDayGroup'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Camera } from '../components/Camera'
-import { TensorFlow } from './TensorFlow'
+// import { Camera } from '../components/Camera'
+// import { TensorFlow } from './TensorFlow'
 
 export const Github = () => {
   const [convertedData, setConvertedData] = useState()
