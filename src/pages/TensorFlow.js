@@ -4,8 +4,9 @@ import { VERSION } from "@mediapipe/hands";
 // import * as cocoSsd from "@tensorflow-models/coco-ssd"
 import "@tensorflow/tfjs-backend-webgl"
 import "@tensorflow/tfjs-backend-cpu"
-import { useEffect, useRef, useContext } from 'react';
+import { useRef, useContext } from 'react';
 import { HandContext } from '../hooks/HandContext'
+// useEffect,
 
 export const TensorFlow = () => {
   const video = useRef()
@@ -135,13 +136,13 @@ export const TensorFlow = () => {
     }
   }
 
-  useEffect(() => {
-    startVideo()
-    return () => {
-      count.current = 2
-      stopVideo()
-    }
-  }, [])
+  // useEffect(() => {
+  //   startVideo()
+  //   return () => {
+  //     count.current = 2
+  //     stopVideo()
+  //   }
+  // }, [])
 
   return (
     <Container>
