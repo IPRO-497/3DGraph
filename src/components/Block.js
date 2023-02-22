@@ -42,7 +42,7 @@ export const BlockMesh = ({setTensor, tensor}) => {
     setTensor(!tensor)
   }
 
-  const time = useRef(0)
+  // const time = useRef(0)
 
   useFrame(({ clock, delta }) => {
     // time.current += clock.elapsedTime

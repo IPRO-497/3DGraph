@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { useRef, useState } from "react"
-import { Link, redirect, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+// Link, redirect,
 
 export const Home = () => {
   const yearDiff = new Array(10).fill(0)

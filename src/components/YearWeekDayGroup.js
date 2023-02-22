@@ -48,18 +48,18 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
     const exporter = new STLExporter().parse(scene)
     saveArrayBuffer(exporter, `${website[0].toUpperCase() + website.slice(1)}Contribution.stl`)
   }
-
+  
+  // const toggletensor = () => setTensor(!tensor)
   useEffect(() => {
     const group = model.current
     const box = new THREE.Box3().setFromObject(group);
     const xOffset = box.getCenter(new THREE.Vector3(0,0,0)).x
     group.position.x -= xOffset
     scene.remove(box)
-    const toggletensor = () => setTensor(!tensor)
-    window.addEventListener("keyup", toggletensor)
-    return () => {
-      window.removeEventListener("keyup", toggletensor)
-    }
+    // window.addEventListener("keyup", toggletensor)
+    // return () => {
+    //   window.removeEventListener("keyup", toggletensor)
+    // }
   }, [scene])
 
   return (
