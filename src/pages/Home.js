@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { useRef, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, redirect, useNavigate } from "react-router-dom"
 
 export const Home = () => {
   const yearDiff = new Array(10).fill(0)
@@ -9,6 +9,7 @@ export const Home = () => {
   const nameWidth = useRef()
   const form = useRef()
   const [websiteWidth, setWebsiteWidth] = useState()
+  const navigate = useNavigate()
   const changeNameWidth = (e) => {
     // Create p tag to get width for input
     const p = document.createElement("p")
@@ -52,7 +53,9 @@ export const Home = () => {
         parameters[form.current[i].id] = form.current[i].value
       }
     }
-    console.log(parameters)
+    if(parameters.name && parameters.year && parameters.website){
+      navigate(`/${parameters.website.toLowerCase()}/${parameters.name.toLowerCase()}/${parameters.year}`)
+    }
   }
   
   return (
@@ -79,7 +82,6 @@ export const Home = () => {
         </select>
         <button id="end" onClick={submitForm}>.</button>
       </form>
-      <Link to="/tensorflow">TensorFlow</Link>
     </Container>
   )
 }
