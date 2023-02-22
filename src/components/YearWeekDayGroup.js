@@ -1,6 +1,6 @@
 import { ContributionGraph } from "./ContributionGraph"
 import { Trapezoid } from "./Trapezoid"
-import { useEffect, useRef, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import * as THREE from "three"
 import { useThree } from '@react-three/fiber'
 import { Text3D, Html } from "@react-three/drei"
@@ -8,14 +8,33 @@ import { GitHubModel } from "./icons/Github"
 import { LeetCodeModel } from "./icons/LeetCode"
 import styled from "styled-components"
 import { STLExporter } from "three/examples/jsm/exporters/STLExporter"
+import { HandContext } from '../hooks/HandContext'
 
-export const YearWeekDayGroup = ({convertedData, username, year, website}) => {
+export const YearWeekDayGroup = ({convertedData, username, year, website, setTensor, tensor}) => {
+  // Camera Logic
+  const {positionConstant, rotationConstant} = useContext(HandContext)
+  const groupRef = useRef()
+
+  const toggleControls = () => {
+    positionConstant.current = [
+      camera.position.x,
+      camera.position.y,
+      camera.position.z
+    ]
+    rotationConstant.current = [
+      groupRef.current.rotation.x,
+      groupRef.current.rotation.y,
+      groupRef.current.rotation.z
+    ]
+    setTensor(!tensor)
+  }
+
   const model = useRef()
   const name = useRef()
   const [popUp, setPopUp] = useState(false)
 
   // Download Logic
-  const { scene } = useThree()
+  const { scene, camera } = useThree()
   const link = document.createElement('a')
   const save = (blob, filename) => {
     link.href = URL.createObjectURL(blob)
@@ -36,10 +55,15 @@ export const YearWeekDayGroup = ({convertedData, username, year, website}) => {
     const xOffset = box.getCenter(new THREE.Vector3(0,0,0)).x
     group.position.x -= xOffset
     scene.remove(box)
+    const toggletensor = () => setTensor(!tensor)
+    window.addEventListener("keyup", toggletensor)
+    return () => {
+      window.removeEventListener("keyup", toggletensor)
+    }
   }, [scene])
 
   return (
-    <group onClick={() => setPopUp(!popUp)}>
+    <group onClick={() => setPopUp(!popUp)} ref={groupRef}>
       <group scale={0.25} ref={model}>
         <ContributionGraph data={convertedData} />
         <Trapezoid />
@@ -48,6 +72,7 @@ export const YearWeekDayGroup = ({convertedData, username, year, website}) => {
           <PopUp position={[0, 0, 0]}>
             <div>
               <button onClick={download}>Download</button>
+              <button onClick={() => toggleControls()}>Toggle Tensor</button>
             </div>
           </PopUp>
         }
