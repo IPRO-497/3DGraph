@@ -1,8 +1,8 @@
 # Problem Statement
 
-**Visualizing contribution to a community and interacting with them in a physical form is challenging.**
+**Visualizing contributions to a community and interacting with them in a physical form is challenging.**
 
-**Our solution offering both visualization and physical interaction with community Github contributions data.**
+**Our solution offers both visualization and physical interaction with community Github contributions data.**
 
 ## What is the problem
 
