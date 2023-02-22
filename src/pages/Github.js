@@ -7,9 +7,12 @@ import { Camera } from '../components/Camera'
 import { TensorFlow } from './TensorFlow'
 
 export const Github = () => {
-  // new Date().getFullYear() - 1
-  const params = useParams()
   const [convertedData, setConvertedData] = useState()
+  const params = useParams()
+
+  // Tensor Logic - Change to Context
+  const [tensor, setTensor] = useState(false)
+  
   useEffect(() => {
     const converter = require("../converter/Github")
     fetch(`/.netlify/functions/github?name=${params.name}&year=${params.year}`)
