@@ -1,5 +1,5 @@
-import { useState, useContext } from 'react'
-import { useThree } from '@react-three/fiber'
+import { useState, useContext, useRef } from 'react'
+import { useFrame, useThree } from '@react-three/fiber'
 import { STLExporter } from "three/examples/jsm/exporters/STLExporter"
 import styled from 'styled-components'
 import { Html } from '@react-three/drei'
@@ -20,30 +20,39 @@ export const BlockMesh = ({setTensor, tensor}) => {
   }
   const download = () => {
     const exporter = new STLExporter().parse(scene)
-    console.log(exporter)
     saveArrayBuffer(exporter, "SufyansBlock.stl")
     // exporter.parse(
     //   scene
     // )
   }
 
+  const groupRef = useRef()
+
   const toggleControls = () => {
-    setTensor(!tensor)
     positionConstant.current = [
       camera.position.x,
       camera.position.y,
-      camera.position.z,
+      camera.position.z
     ]
     rotationConstant.current = [
-      camera.rotation.x,
-      camera.rotation.y,
-      camera.rotation.z
+      groupRef.current.rotation.x,
+      groupRef.current.rotation.y,
+      groupRef.current.rotation.z
     ]
+    setTensor(!tensor)
   }
+
+  const time = useRef(0)
+
+  useFrame(({ clock, delta }) => {
+    // time.current += clock.elapsedTime
+    // console.log(clock.oldTime - clock.startTime)
+    // console.log(time.current / 1000)
+  })
 
 
   return (
-    <group>
+    <group ref={groupRef}>
       <mesh onClick={() => setPopup(!popup)}>
         <boxGeometry />
         <meshBasicMaterial color="red"/>
