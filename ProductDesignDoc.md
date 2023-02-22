@@ -101,12 +101,12 @@ We would like to develop a web application that can display given data in 3D for
 | 4 - Problem Framing -  Graphics Designer            | Nadia + Rabia + Mbargou|
 | 5 - Think, build, test, and demo for midterm        | All team members       |
 | 6 - Think, build, test, and demo for midterm        | All team members       |
-| 7 - Think, build, test, and demo for midterm        | All team members       |
-| 8 - Think, build, test, and demo for midterm        | All team members       |
-| 9 - Think, build, test, and demo for final          | All team members       |
-| 10 - Think, build, test, and demo for final	        | All team members       |
-| 11 - Think, build, test, and demo for final         | All team members       |
-| 12 - Think, build, test, and demo for final         | All team members       |
-| 13 - Think, build, test, and demo for final         | All team members       |
-| 14 - Presentation dry run                           | All team members       |
-| 15 - Presentation                                   | All team members       |
+| 7 - Think, build, test, and demo for midterm        | Tomiwa       |
+| 8 - Think, build, test, and demo for midterm        | Tomiwa       |
+| 9 - Think, build, test, and demo for final          | Mbargou Gueye      |
+| 10 - Think, build, test, and demo for final	        | Mbargou Gueye       |
+| 11 - Think, build, test, and demo for final         | Zain Farhat       |
+| 12 - Think, build, test, and demo for final         | Zain Farhat       |
+| 13 - Think, build, test, and demo for final         | Sufyan Khan / Rabia Ahmed        |
+| 14 - Presentation dry run                           | Sufyan Khan / Rabia Ahmed        |
+| 15 - Presentation                                   | Nadia Ahmed       |
