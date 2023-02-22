@@ -1,3 +1,5 @@
+import fetch from 'node-fetch'
+
 const handler = async (event) => {
   try {
     const name = event.queryStringParameters.name
