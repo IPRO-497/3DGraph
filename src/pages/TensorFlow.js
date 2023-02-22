@@ -66,7 +66,7 @@ export const TensorFlow = () => {
           leftConstant.current = []
         }
         else{
-          const obj = hands.find(obj => obj.handedness === "Left")
+          const obj = JSON.parse(JSON.stringify(hands.find(obj => obj.handedness === "Left")))
           if(!leftConstant.current.length)leftConstant.current = [
             obj.keypoints3D[0].x,
             obj.keypoints3D[0].y,
@@ -83,7 +83,7 @@ export const TensorFlow = () => {
           rightConstant.current = []
         }
         else{
-          const obj = hands.find(obj => obj.handedness === "Right")
+          const obj = JSON.parse(JSON.stringify(hands.find(obj => obj.handedness === "Right")))
           if(!rightConstant.current.length)rightConstant.current = [
             obj.keypoints3D[0].x,
             obj.keypoints3D[0].y,
@@ -95,7 +95,8 @@ export const TensorFlow = () => {
             obj.keypoints3D[0].z
           ]
         }
-        console.log({rightConstant, rightCurrent, leftConstant, leftCurrent})
+        // console.log({rightConstant, rightCurrent, leftConstant, leftCurrent})
+        // console.log(rightConstant)
       })
       .catch(err => console.log(err))
       if(video?.current?.srcObject)window.requestAnimationFrame(predictWebcam)
@@ -121,7 +122,7 @@ export const TensorFlow = () => {
       if(!!!(navigator.mediaDevices.getUserMedia))throw new Error('media device is not supported.');
       const stream = await navigator.mediaDevices.getUserMedia({video: true})
       streamRef.current = stream
-      console.log(stream)
+      // console.log(stream)
       if(!video.current.srcObject)video.current.srcObject = stream
       video.current.addEventListener("loadeddata", startWebcam)
       window.stream = stream
@@ -147,7 +148,7 @@ export const TensorFlow = () => {
       <div className="container">
         <button onClick={() => startVideo()}>Start Logic</button>
         <button onClick={() => stopVideo()}>End Logic</button>
-        <video className="input_video" ref={video} onLoad={e => console.log(e)} autoPlay >
+        <video className="input_video" ref={video} autoPlay >
           <source src="/small.mp4" type='video/mp4' />
         </video>
         <canvas className="output_canvas" width="100vw" height="100vh" ref={canvas}></canvas>
