@@ -23,9 +23,12 @@ export const Github = () => {
   }, [params])
   return (
     <>
+    {
       tensor && 
       <TensorFlow />
+    }
     <Canvas>
+      {tensor ? <MotionCamera />: <OrbitControls />}
       <OrbitControls />
       {convertedData && <YearWeekDayGroup convertedData={convertedData} username={params.name} year={params.year} website="github" setTensor={setTensor} tensor={tensor} />}
     </Canvas>

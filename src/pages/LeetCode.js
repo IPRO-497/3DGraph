@@ -24,12 +24,12 @@ export const LeetCode = () => {
   }, [params])
   return (
     <>
-      {/* {
+      {
         tensor && 
         <TensorFlow />
-      } */}
+      }
       <Canvas>
-        {/* {tensor ? <Camera /> : <OrbitControls />} */}
+        {tensor ? <MotionCamera />: <OrbitControls />}
         <OrbitControls />
         {convertedData && <YearWeekDayGroup convertedData={convertedData} username={params.name} year={params.year} website="leetcode" setTensor={setTensor} tensor={tensor}/>}
       </Canvas>

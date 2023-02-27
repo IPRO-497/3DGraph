@@ -9,9 +9,12 @@ export const Block = () => {
   const [tensor, setTensor] = useState(false)
   return (
     <>
+    {
       tensor && 
       <TensorFlow />
+    }
     <Canvas>
+      {tensor ? <MotionCamera />: <OrbitControls />}
       <BlockMesh setTensor={setTensor} tensor={tensor}/>
     </Canvas>
     </>
