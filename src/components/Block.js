@@ -1,5 +1,5 @@
 import { useState, useContext, useRef } from 'react'
-import { useFrame, useThree } from '@react-three/fiber'
+import { useThree } from '@react-three/fiber'
 import { STLExporter } from "three/examples/jsm/exporters/STLExporter"
 import styled from 'styled-components'
 import { Html } from '@react-three/drei'
@@ -21,9 +21,6 @@ export const BlockMesh = ({setTensor, tensor}) => {
   const download = () => {
     const exporter = new STLExporter().parse(scene)
     saveArrayBuffer(exporter, "SufyansBlock.stl")
-    // exporter.parse(
-    //   scene
-    // )
   }
 
   const groupRef = useRef()
@@ -41,14 +38,6 @@ export const BlockMesh = ({setTensor, tensor}) => {
     ]
     setTensor(!tensor)
   }
-
-  // const time = useRef(0)
-
-  useFrame(({ clock, delta }) => {
-    // time.current += clock.elapsedTime
-    // console.log(clock.oldTime - clock.startTime)
-    // console.log(time.current / 1000)
-  })
 
 
   return (

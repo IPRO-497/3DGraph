@@ -3,8 +3,8 @@ import { Canvas } from '@react-three/fiber'
 import { YearWeekDayGroup } from '../components/YearWeekDayGroup'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-// import { Camera } from '../components/Camera'
-// import { TensorFlow } from './TensorFlow'
+import { MotionCamera } from '../components/MotionCamera'
+import { TensorFlow } from '../components/TensorFlow'
 
 export const Github = () => {
   const [convertedData, setConvertedData] = useState()
@@ -23,12 +23,12 @@ export const Github = () => {
   }, [params])
   return (
     <>
-    {/* {
+    {
       tensor && 
       <TensorFlow />
-    } */}
+    }
     <Canvas>
-      {/* {tensor ? <Camera /> : <OrbitControls />} */}
+      {tensor ? <MotionCamera />: <OrbitControls />}
       <OrbitControls />
       {convertedData && <YearWeekDayGroup convertedData={convertedData} username={params.name} year={params.year} website="github" setTensor={setTensor} tensor={tensor} />}
     </Canvas>

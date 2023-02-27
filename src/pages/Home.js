@@ -1,7 +1,6 @@
 import styled from "styled-components"
 import { useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
-// Link, redirect,
 
 export const Home = () => {
   const yearDiff = new Array(10).fill(0)
@@ -69,7 +68,6 @@ export const Home = () => {
           onChange={changeNameWidth}
           value={name}
         />
-        {/* <p id="apostrophe">'s</p> Use after psuedo element */}
         <select name="year" id="year" defaultValue={currYear - 1}>
           {yearDiff.map((num, diff) => <option value={currYear - diff} key={diff}>{currYear - diff}</option>)}
         </select>
