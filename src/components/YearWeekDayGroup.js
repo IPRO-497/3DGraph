@@ -49,17 +49,12 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
     saveArrayBuffer(exporter, `${website[0].toUpperCase() + website.slice(1)}Contribution.stl`)
   }
   
-  // const toggletensor = () => setTensor(!tensor)
   useEffect(() => {
     const group = model.current
     const box = new THREE.Box3().setFromObject(group);
     const xOffset = box.getCenter(new THREE.Vector3(0,0,0)).x
     group.position.x -= xOffset
     scene.remove(box)
-    // window.addEventListener("keyup", toggletensor)
-    // return () => {
-    //   window.removeEventListener("keyup", toggletensor)
-    // }
   }, [scene])
 
   return (
@@ -90,8 +85,6 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
           {username}
           <meshBasicMaterial color="BLACK" />
         </Text3D>
-        
-        {/* {username.split("").map((char, key) => characters[char]({position: [key, 0, 0]}))} */}
 
         <Text3D
           font="/helvetiker_regular.typeface.json"
