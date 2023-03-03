@@ -69,11 +69,11 @@ export const TensorFlow = () => {
           // Update neccesary data for movement
           const obj = JSON.parse(JSON.stringify(hands.find(obj => obj.handedness === "Left")))
           if(!leftConstant.current.length)leftConstant.current = [
-            (obj.keypoints[0].x / size.current.x - 0.5) * 2,
+            -(obj.keypoints[0].x / size.current.x - 0.5) * 2,
             (obj.keypoints[0].y / size.current.y - 0.5) * 2,
           ]
           leftCurrent.current = [
-            (obj.keypoints[0].x / size.current.x - 0.5) * 2,
+            -(obj.keypoints[0].x / size.current.x - 0.5) * 2,
             (obj.keypoints[0].y / size.current.y - 0.5) * 2,
           ]
         }
@@ -84,11 +84,11 @@ export const TensorFlow = () => {
         else{
           const obj = JSON.parse(JSON.stringify(hands.find(obj => obj.handedness === "Right")))
           if(!rightConstant.current.length)rightConstant.current = [
-            (obj.keypoints[0].x / size.current.x - 0.5) * 2,
+            -(obj.keypoints[0].x / size.current.x - 0.5) * 2,
             (obj.keypoints[0].y / size.current.y - 0.5) * 2,
           ]
           rightCurrent.current = [
-            (obj.keypoints[0].x / size.current.x - 0.5) * 2,
+            -(obj.keypoints[0].x / size.current.x - 0.5) * 2,
             (obj.keypoints[0].y / size.current.y - 0.5) * 2,
           ]
         }
