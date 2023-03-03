@@ -5,6 +5,7 @@ import { Home } from './pages/Home';
 import { LeetCode } from './pages/LeetCode';
 import { HandContext } from './hooks/HandContext';
 import { useRef } from 'react';
+import { ButtonStyle } from './pages/ButtonStyle';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path='/style/button' element={ <ButtonStyle />} />
           <Route exact path="/block" element={<Block />} />
           <Route exact path="/leetcode/:name/:year" element={<LeetCode />} />
           <Route exact path="/github/:name/:year" element={<Github />} />
