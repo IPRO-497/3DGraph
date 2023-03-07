@@ -12,6 +12,8 @@ import { ButtonStyle } from './ButtonStyle'
 export const LeetCode = () => {
   const [convertedData, setConvertedData] = useState()
   const params = useParams()
+  const name = params.name
+  const year = params.year
 
   // Tensor Logic - Change to Context
   const [tensor, setTensor] = useState(false)
@@ -19,12 +21,12 @@ export const LeetCode = () => {
 
   useEffect(() => {
     const converter = require("../converter/LeetCode")
-    fetch(`/.netlify/functions/leetcode?name=${params.name}&year=${params.year}`)
+    fetch(`/.netlify/functions/leetcode?name=${name}&year=${year}`)
     .then(response => response.json())
     .then(response => {
-      setConvertedData(converter.convert(response, params.year))
+      setConvertedData(converter.convert(response, year))
     })
-  }, [params])
+  }, [name, year])
   return (
     <>
       {

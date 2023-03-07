@@ -11,6 +11,8 @@ import { ButtonStyle } from './ButtonStyle'
 export const Github = () => {
   const [convertedData, setConvertedData] = useState()
   const params = useParams()
+  const name = params.name
+  const year = params.year
 
   // Tensor Logic - Change to Context
   const [tensor, setTensor] = useState(false)
@@ -18,12 +20,12 @@ export const Github = () => {
   
   useEffect(() => {
     const converter = require("../converter/Github")
-    fetch(`/.netlify/functions/github?name=${params.name}&year=${params.year}`)
+    fetch(`/.netlify/functions/github?name=${name}&year=${year}`)
     .then(response => response.json())
     .then(response => {
       setConvertedData(converter.convert(response))
     })
-  }, [params])
+  }, [name, year])
   return (
     <>
     {
