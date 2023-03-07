@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import styled from 'styled-components'
 
 export const FancyButton = ({position, count, itemEm, border, radius}) => {
