@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { FancyButton } from '../components/FancyButton'
 import { useState, useEffect } from 'react'
+import { useContext } from 'react'
+import { MenuContext } from '../hooks/MenuHook'
 
 export const ButtonStyle = () => {
   const count = 6

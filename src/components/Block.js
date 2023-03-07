@@ -1,9 +1,10 @@
-import { useState, useContext, useRef } from 'react'
+import { useContext, useRef } from 'react'
 import { useThree } from '@react-three/fiber'
 import { STLExporter } from "three/examples/jsm/exporters/STLExporter"
 import styled from 'styled-components'
 import { Html } from '@react-three/drei'
 import { HandContext } from '../hooks/HandContext'
+import { MenuContext } from '../hooks/MenuHook'
 
 export const BlockMesh = ({setTensor, tensor}) => {
   const {positionConstant, rotationConstant} = useContext(HandContext)
