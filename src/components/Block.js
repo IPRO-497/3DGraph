@@ -1,8 +1,6 @@
 import { useContext, useRef } from 'react'
 import { useThree } from '@react-three/fiber'
 import { STLExporter } from "three/examples/jsm/exporters/STLExporter"
-import styled from 'styled-components'
-import { Html } from '@react-three/drei'
 import { HandContext } from '../hooks/HandContext'
 import { MenuContext } from '../hooks/MenuHook'
 
@@ -57,25 +55,6 @@ export const BlockMesh = ({setTensor, tensor}) => {
         <boxGeometry />
         <meshBasicMaterial color="red"/>
       </mesh>
-      {
-        popup && 
-        <PopUp position={[0, 0, 0]}>
-          <div>
-            <button onClick={download}>Download</button>
-            <button onClick={() => toggleControls()}>Toggle Tensor</button>
-          </div>
-        </PopUp>
-      }
     </group>
   )
 }
-
-const PopUp = styled(Html)`
-  background-color: red;
-  height: 15em;
-  width: 20em;
-  button{
-    background-color: blue;
-    padding: 1px;
-  }
-`

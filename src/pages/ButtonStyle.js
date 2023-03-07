@@ -8,19 +8,27 @@ export const ButtonStyle = () => {
   const {itemList} = useContext(MenuContext)
   const count = itemList.length
   const afterPosition = count
-  const itemEm = 2
+  const itemEm = 2.5
   const border = 2
-  const itemHeight = itemEm*16
+  const itemBorder = 0.1
+  const itemHeight = itemEm*16 
   const circleRatio = 1.5
   const [radius, setRadius] = useState(window.innerWidth*circleRatio/2)
   const leftAfterPosition = radius + 1 + border - (radius**2 - (itemHeight*(1+2*afterPosition)/2)**2)**0.5
   const angle = Math.asin((count + 1/2)*itemHeight / radius)
+  const svgWidth = radius - ((radius-2*border)**2 - ((2*(count-1) + 1)*itemHeight/2)**2)**0.5
+  const circleX = svgWidth - (window.innerWidth*3/4)
 
   const resize = () => {
     setRadius(window.innerWidth*circleRatio/2)
   }
 
+  const itemPosition = (position) => {
+    return Math.floor(count - position*2 - 1)
+  }
+
   useEffect(() => {
+    resize()
     window.addEventListener("resize", resize)
   
     return () => {
@@ -36,32 +44,40 @@ export const ButtonStyle = () => {
       border={border}
       angle={angle}
       ratio={circleRatio}
-      >
-      <div className='circle'></div>
+      svgWidth={svgWidth}
+      circleWidth={circleX}
+      buttonBorder={itemBorder}
+    >
       <svg className='svg'>
         <defs>
-          <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0" stop-color="red" />
-            <stop offset="30%" stop-color="red" />
-            <stop offset="30%" stop-color="blue" />
-            <stop offset="60%" stop-color="blue" />
-            <stop offset="60%" stop-color="red" />
-            <stop offset="100%" stop-color="red" />
+        {
+          new Array(count).fill(0).map((num, key) =>
+          <linearGradient key={key} id={"grad"+ key} x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0" stopColor="transparent" />
+            <stop offset={(radius - itemHeight/2)/(2*radius) - itemPosition(key)*itemHeight/(2*radius)} stopColor="transparent" />
+            <stop offset={(radius - itemHeight/2)/(2*radius) - itemPosition(key)*itemHeight/(2*radius)} stopColor="#2090dc" />
+            <stop offset={(radius - itemHeight/2)/(2*radius) + itemHeight/(2*radius) - itemPosition(key)*itemHeight/(2*radius)} stopColor="#2090dc" />
+            <stop offset={(radius - itemHeight/2)/(2*radius) + itemHeight/(2*radius) - itemPosition(key)*itemHeight/(2*radius)} stopColor="transparent" />
+            <stop offset="1.0" stopColor="transparent" />
           </linearGradient>
+          )}
         </defs>
-        <circle />
+        {new Array(count).fill(0).map((num, key) => <circle key={key} stroke={"url(#grad"+key+")"}/>)}
         Sorry, your browser does not support inline SVG.
-      </svg> 
+      </svg>
       <div className='list-container'>
         <ul className='button-list'>
           {
-            new Array(count).fill(0).map((num, key) => <FancyButton
+            itemList.map((item, key) => <FancyButton
             key={key}
             position={key}
             count={count}
             itemEm={itemEm}
             border = {border}
             radius={radius}
+            item={item}
+            itemHeight={itemHeight}
+            buttonBorder={itemBorder}
           />)}
         </ul>
       </div>
@@ -70,47 +86,10 @@ export const ButtonStyle = () => {
 }
 
 const Container = styled.div`
-  .circle{
-    width: ${props => props.ratio*100 + "%"};
-    aspect-ratio: 1 / 1;
-    background-color: white;
-    position: fixed;
-    left: -${props => props.ratio*50 + "%"};
-    top: calc((100vh - ${props => props.ratio*100 + "vw"}) / 2);
-    border-radius: 50%;
-    ::before{
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      padding: ${props => props.border + "px"};
-      background: conic-gradient(
-        from ${props => (Math.PI/2 - props.angle)+"rad"},
-        blue ${props => (2*props.angle)+"rad"},
-        transparent ${props => (2*props.angle)+"rad"}
-      );
-      mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
-      mask-composite: xor;
-      mask-composite: exclude;
-    }
-  }
-  .svg{
-    width: ${props => props.ratio*100 + "%"};
-    aspect-ratio: 1 / 1;
-    position: fixed;
-    left: -${props => props.ratio*50 + "%"};
-    top: calc((100vh - ${props => props.ratio*100 + "vw"}) / 2);
-    circle{
-      r: ${props => props.ratio*50}vw;
-      cx: ${props => props.ratio*50}vw;
-      cy: ${props => props.ratio*50}vw;
-      stroke: url(#grad1);
-      stroke-width: ${props => props.border}px;
-      fill: red;
-    }
-  }
+  height: 0;
+  width: 0;
+  position: fixed;
+  z-index: 1;
   .list-container{
     position: fixed;
     z-index: 2;
@@ -121,18 +100,32 @@ const Container = styled.div`
     left: ${props => props.ratio*50 + "%"};
     .button-list{
       position: relative;
-      li:nth-last-of-type(1)
-      {
+      li:nth-last-of-type(1){
         ::after{
           content: "";
           display: block;
-          height: ${props => props.font + "em"};
+          height: ${props =>(props.font) + "em"};
           position: relative;
-          background-color: #ffffff;
-          left: ${props => "-"+props.afterPosition+"px"};
+          background-color: transparent;
         }
       }
     }
   }
-
+  .svg{
+    height: 100vh;
+    width: ${props => props.svgWidth}px;
+    top: 0;
+    aspect-ratio: 1 / 1;
+    position: fixed;
+    right: 25%;
+    /* top: calc((100vh - ${props => props.ratio*100 + "vw"}) / 2); */
+    circle{
+      r: calc(${props => props.ratio*50}vw - ${props => props.border}px);
+      cx: ${props => props.circleWidth}px;
+      cy: 50vh;
+      stroke-width: ${props => props.border}px;
+      fill: transparent;
+      /* stroke: url(#${props => props.id}); */
+    }
+  }
 `

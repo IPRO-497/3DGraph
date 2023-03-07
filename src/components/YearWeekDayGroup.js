@@ -3,10 +3,9 @@ import { Trapezoid } from "./Trapezoid"
 import { useContext, useEffect, useRef } from "react"
 import * as THREE from "three"
 import { useThree } from '@react-three/fiber'
-import { Text3D, Html } from "@react-three/drei"
+import { Text3D } from "@react-three/drei"
 import { GitHubModel } from "./icons/Github"
 import { LeetCodeModel } from "./icons/LeetCode"
-import styled from "styled-components"
 import { STLExporter } from "three/examples/jsm/exporters/STLExporter"
 import { HandContext } from '../hooks/HandContext'
 import { MenuContext } from '../hooks/MenuHook'
@@ -33,7 +32,6 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
 
   const model = useRef()
   const name = useRef()
-  const [popUp, setPopUp] = useState(false)
 
   // Download Logic
   const { scene, camera } = useThree()
@@ -68,22 +66,21 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
     const xOffset = box.getCenter(new THREE.Vector3(0,0,0)).x
     group.position.x -= xOffset
     scene.remove(box)
-  }, [scene])
+    camera.position.x = Math.sin(-0.16 * Math.PI) * 5
+    camera.position.z = Math.cos(-0.16 * Math.PI) * 5
+    camera.position.y = 1
+  }, [scene, camera.position])
 
   return (
-    <group onClick={() => setPopUp(!popUp)} ref={groupRef}>
+    <group
+      onClick={() => setShow(!show)}
+      ref={groupRef}
+      onPointerEnter={() => document.body.style.cursor="pointer"}
+      onPointerLeave={() => document.body.style.cursor="auto"}
+    >
       <group scale={0.25} ref={model}>
         <ContributionGraph data={convertedData} />
         <Trapezoid />
-        {
-          popUp &&
-          <PopUp position={[0, 0, 0]}>
-            <div>
-              <button onClick={download}>Download</button>
-              <button onClick={() => toggleControls()}>Toggle Tensor</button>
-            </div>
-          </PopUp>
-        }
       </group>
 
       {/* Text */}
@@ -127,13 +124,3 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
     </group>
   )
 }
-
-const PopUp = styled(Html)`
-  background-color: red;
-  height: 15em;
-  width: 20em;
-  button{
-    background-color: blue;
-    padding: 1px;
-  }
-`

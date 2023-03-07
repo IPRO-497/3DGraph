@@ -32,9 +32,9 @@ export const MotionCamera = () => {
 
   useEffect(() => {
     return () => {
-      camera.position.x = 0
-      camera.position.y = 0
-      camera.position.z = 5
+      camera.position.x = Math.sin(-0.16 * Math.PI) * 5
+      camera.position.z = Math.cos(-0.16 * Math.PI) * 5
+      camera.position.y = 1
     }
   }, [camera.position])
   return (
