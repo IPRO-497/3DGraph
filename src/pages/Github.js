@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom'
 import { MotionCamera } from '../components/MotionCamera'
 import { TensorFlow } from '../components/TensorFlow'
 import { MenuContext } from '../hooks/MenuHook'
+import { ButtonStyle } from './ButtonStyle'
 
 export const Github = () => {
   const [convertedData, setConvertedData] = useState()
@@ -13,6 +14,7 @@ export const Github = () => {
 
   // Tensor Logic - Change to Context
   const [tensor, setTensor] = useState(false)
+  const {show} = useContext(MenuContext)
   
   useEffect(() => {
     const converter = require("../converter/Github")
@@ -27,6 +29,10 @@ export const Github = () => {
     {
       tensor && 
       <TensorFlow />
+    }
+    {
+      show &&
+      <ButtonStyle />
     }
     <Canvas>
       {tensor ? <MotionCamera />: <OrbitControls />}

@@ -14,6 +14,7 @@ import { MenuContext } from '../hooks/MenuHook'
 export const YearWeekDayGroup = ({convertedData, username, year, website, setTensor, tensor}) => {
   // Camera Logic
   const {positionConstant, rotationConstant} = useContext(HandContext)
+  const { show, setShow, setItemList } = useContext(MenuContext)
   const groupRef = useRef()
 
   const toggleControls = () => {
@@ -49,6 +50,17 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
     const exporter = new STLExporter().parse(scene)
     saveArrayBuffer(exporter, `${website[0].toUpperCase() + website.slice(1)}Contribution.stl`)
   }
+
+  setItemList([
+    {
+      name: "Download",
+      function: download
+    },
+    {
+      name: "Toggle Tensor",
+      function:toggleControls
+    }
+  ])
   
   useEffect(() => {
     const group = model.current

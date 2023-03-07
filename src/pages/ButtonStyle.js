@@ -5,7 +5,8 @@ import { useContext } from 'react'
 import { MenuContext } from '../hooks/MenuHook'
 
 export const ButtonStyle = () => {
-  const count = 6
+  const {itemList} = useContext(MenuContext)
+  const count = itemList.length
   const afterPosition = count
   const itemEm = 2
   const border = 2

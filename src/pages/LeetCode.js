@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom'
 import { MotionCamera } from '../components/MotionCamera'
 import { TensorFlow } from '../components/TensorFlow'
 import { MenuContext } from '../hooks/MenuHook'
+import { ButtonStyle } from './ButtonStyle'
 
 export const LeetCode = () => {
   const [convertedData, setConvertedData] = useState()
@@ -14,6 +15,7 @@ export const LeetCode = () => {
 
   // Tensor Logic - Change to Context
   const [tensor, setTensor] = useState(false)
+  const {show} = useContext(MenuContext)
 
   useEffect(() => {
     const converter = require("../converter/LeetCode")
@@ -28,6 +30,10 @@ export const LeetCode = () => {
       {
         tensor && 
         <TensorFlow />
+      }
+      {
+        show &&
+        <ButtonStyle />
       }
       <Canvas>
         {tensor ? <MotionCamera />: <OrbitControls />}
