@@ -29,6 +29,12 @@
 ## Week 9 ##
 
 ## Week 10 ##
+- We should probably work on your problem statement a bit to make it a bit smoother
+- Slides could use titles.  For example, the scenarios slides don't a title.
+- Scenarios slides are very text heavy.  Could you provide a few bullets and actually "read" the entire text when you present it?
+- What do the various models cost you to print and ship?  Will you actually make money?
+- More conventional UI might be good.
+- I like your sizing of work and prioritization 
 
 ## Week 11 ##
 
