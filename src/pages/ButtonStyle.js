@@ -21,6 +21,7 @@ export const ButtonStyle = () => {
 
   const resize = () => {
     setRadius(window.innerWidth*circleRatio/2)
+    
   }
 
   const itemPosition = (position) => {
