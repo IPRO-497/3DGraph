@@ -39,6 +39,8 @@
 ## Week 11 ##
 
 ## Week 12 ##
+- Look at your scenarios (update/replace if needed).  Make sure you are building stories and capabilities that address your scenarios.
+- Identify stories that you need to complete to do your final demo (take a look are your scenarios to see what you need to complete and make sure those stories on the board and tagged as "final demo")
 
 ## Week 13 ##
 
