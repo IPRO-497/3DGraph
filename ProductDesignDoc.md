@@ -93,7 +93,7 @@ We would like to develop a web application that can display given data in 3D for
 
 ## Sprint Schedule
 
-| Week                                                | Sprint Leader |
+| Week                                                | Sprint Leader          |
 | --------------------------------------------------- | ---------------------- |
 | 1 - Problem Framing -  Data Analysis                | Zain + Tomiwa          |
 | 2 - Problem Framing - Web Design                    | Tomiwa                 |
@@ -101,12 +101,12 @@ We would like to develop a web application that can display given data in 3D for
 | 4 - Problem Framing -  Graphics Designer            | Nadia + Rabia + Mbargou|
 | 5 - Think, build, test, and demo for midterm        | All team members       |
 | 6 - Think, build, test, and demo for midterm        | All team members       |
-| 7 - Think, build, test, and demo for midterm        | Tomiwa       |
-| 8 - Think, build, test, and demo for midterm        | Tomiwa       |
-| 9 - Think, build, test, and demo for final          | Mbargou Gueye      |
-| 10 - Think, build, test, and demo for final	        | Mbargou Gueye       |
-| 11 - Think, build, test, and demo for final         | Zain Farhat       |
-| 12 - Think, build, test, and demo for final         | Zain Farhat       |
-| 13 - Think, build, test, and demo for final         | Sufyan Khan / Rabia Ahmed        |
-| 14 - Presentation dry run                           | Sufyan Khan / Rabia Ahmed        |
-| 15 - Presentation                                   | Nadia Ahmed       |
+| 7 - Think, build, test, and demo for midterm        | Tomiwa                 |
+| 8 - Think, build, test, and demo for midterm        | Tomiwa                 |
+| 9 - Think, build, test, and demo for final          | Mbargou Gueye          |
+| 10 - Think, build, test, and demo for final	        | Mbargou Gueye          |
+| 11 - Think, build, test, and demo for final         | Sufyan Khan            |
+| 12 - Think, build, test, and demo for final         | Nadia Ahmed            |
+| 13 - Think, build, test, and demo for final         | Rabia Ahmed            |
+| 14 - Presentation dry run                           | Tomiwa                 |
+| 15 - Presentation                                   | Tomiwa                 |
