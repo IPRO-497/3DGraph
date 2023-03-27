@@ -117,7 +117,7 @@ export const TensorFlow = () => {
     // Logic to stop webcam streaming
     stopVideo: () => {
       const stream = video?.current?.captureStream() || streamRef.current;
-      const tracks = stream.getTracks();
+      const tracks = stream ? stream.getTracks() : [];
       for (var i = 0; i < tracks.length; i++) {
         tracks[i].stop();
         stream.removeTrack(tracks[i])
