@@ -9,11 +9,11 @@ import { TensorFlow } from '../components/TensorFlow'
 import { MenuContext } from '../hooks/MenuHook'
 import { ButtonStyle } from './ButtonStyle'
 
-export const LeetCode = () => {
+export const LeetCode = (name, year) => {
   const [convertedData, setConvertedData] = useState()
   const params = useParams()
-  const name = params.name
-  const year = params.year
+  if(typeof name !== "string")name = params.name
+  if(typeof year !== "string")year = params.year
 
   // Tensor Logic - Change to Context
   const [tensor, setTensor] = useState(false)
@@ -37,10 +37,10 @@ export const LeetCode = () => {
         show &&
         <ButtonStyle />
       }
-      <Canvas>
+      <Canvas className='canvas'>
         {tensor ? <MotionCamera />: <OrbitControls />}
         <OrbitControls />
-        {convertedData && <YearWeekDayGroup convertedData={convertedData} username={params.name} year={params.year} website="leetcode" setTensor={setTensor} tensor={tensor}/>}
+        {convertedData && <YearWeekDayGroup convertedData={convertedData} username={name} year={year} website="leetcode" setTensor={setTensor} tensor={tensor}/>}
       </Canvas>
     </>
   )
