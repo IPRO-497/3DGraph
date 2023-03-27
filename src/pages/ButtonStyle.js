@@ -3,6 +3,7 @@ import { FancyButton } from '../components/FancyButton'
 import { useState, useEffect } from 'react'
 import { useContext } from 'react'
 import { MenuContext } from '../hooks/MenuHook'
+import { useLocation } from 'react-router-dom'
 
 export const ButtonStyle = () => {
   const {itemList} = useContext(MenuContext)
@@ -18,6 +19,7 @@ export const ButtonStyle = () => {
   const angle = Math.asin((count + 1/2)*itemHeight / radius)
   const svgWidth = radius - ((radius-2*border)**2 - ((2*(count-1) + 1)*itemHeight/2)**2)**0.5
   const circleX = svgWidth - (window.innerWidth*3/4)
+  const location = useLocation()
 
   const resize = () => {
     setRadius(window.innerWidth*circleRatio/2)
@@ -37,7 +39,7 @@ export const ButtonStyle = () => {
   }, [])
   
 
-  return (
+  return location.pathname !== "/item" && (
     <Container
       afterPosition={leftAfterPosition}
       font={itemEm}
