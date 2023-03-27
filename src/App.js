@@ -8,6 +8,7 @@ import { useRef } from 'react';
 import { ButtonStyle } from './pages/ButtonStyle';
 import { MenuContext } from './hooks/MenuHook';
 import { useState } from 'react';
+import { Item } from './pages/Item';
 
 function App() {
   const [itemList, setItemList] = useState([])
@@ -32,6 +33,7 @@ function App() {
               <Route exact path="/" element={<Home />} />
               <Route exact path='/style/button' element={ <ButtonStyle />} />
               <Route exact path="/block" element={<Block />} />
+              <Route exact path="/item" element={<Item />} />
               <Route exact path="/leetcode/:name/:year" element={<LeetCode />} />
               <Route exact path="/github/:name/:year" element={<Github />} />
           </Routes>
