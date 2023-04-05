@@ -46,9 +46,14 @@
 	- Add stories and labels on the board to realize this scenario as a demo
 - Dry run final presentation and demo (4/18/23)
 - Final presentation and demo (4/25/2022)
-Innovation Day (Friday 4/28/2023) Mandatory attendance all students (9:00 AM – 1:30 PM)
+- Innovation Day (Friday 4/28/2023) Mandatory attendance all students (9:00 AM – 1:30 PM)
 
 ## Week 13 ##
+- Keep main up to date with regular pull requests to bring branches to main
+- Ways to get help in an agile (scrum) team
+	- talk to the duck - https://en.wikipedia.org/wiki/Rubber_duck_debugging
+	- Ask for help as a part of you stand up talk about blockers
+	- Ask for someone to join you in debugging and explain what each line is doing in the problem area
 
 ## Week 14 ##
 
