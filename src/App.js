@@ -42,10 +42,15 @@ function App() {
       rotationConstant: useRef([])
     }}>
       <MenuContext.Provider value={{
+        cartCount: cartCount,
         itemList: itemList,
         show: show,
+        cartItems: cartItems,
         setItemList: setItemList,
-        setShow: setShow
+        setShow: setShow,
+        setCartCount: setCartCount,
+        setCartItems: setCartItems,
+        addToCart: addToCart
       }}>
         <Router>
           <Navbar />
