@@ -11,7 +11,7 @@ export const Cart = () => {
   const {setCartItems, cartItems} = useContext(MenuContext)
 
   const checkout = (e) => {
-    fetch(`/.netlify/functions/stripe`,{
+    fetch(`/.netlify/functions/stripe?origin=${window.location.origin}`,{
       method: 'POST',
       body: JSON.stringify(cartItems),
       headers: {'Content-Type': 'application/json'}
