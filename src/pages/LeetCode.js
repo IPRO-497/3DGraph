@@ -9,7 +9,7 @@ import { TensorFlow } from '../components/TensorFlow'
 import { MenuContext } from '../hooks/MenuHook'
 import { ButtonStyle } from './ButtonStyle'
 
-export const LeetCode = (name, year) => {
+export const LeetCode = ({name, year}) => {
   const [convertedData, setConvertedData] = useState()
   const params = useParams()
   if(typeof name !== "string")name = params.name
