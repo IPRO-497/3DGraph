@@ -136,7 +136,7 @@ export const Form = ({setPreview, setData}) => {
       </>}
       {type === "home" && <button id="get" onClick={submitForm}>Display model</button>}
       {type === "item" && <button id="preview" onClick={Preview}>Preview</button>}
-      {type === "item" && <button id="cart">Move to Cart</button>}
+      {type === "item" && <button id="cart" onClick={addCart}>Add to Cart</button>}
       
     </Container>
   )
