@@ -3,7 +3,6 @@ import moment from "moment/moment"
 export const convert = (data) => {
   const newData = [] // Data list
   const array = Object.keys(data) // Change data keys to list
-  const firstDate = new Date(array[0]) // Get First Date
 
   const weekYear1 = moment((new Date().getFullYear() - 1).toString())
   .weeksInYear() // Get number of weeks in first year
