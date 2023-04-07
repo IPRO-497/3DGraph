@@ -32,6 +32,7 @@ function App() {
         setShow: setShow
       }}>
         <Router>
+          <Navbar />
           <Routes>
               <Route exact path="/" element={<Home />} />
               <Route exact path='/style/button' element={ <ButtonStyle />} />
@@ -39,6 +40,8 @@ function App() {
               <Route exact path="/item" element={<Item />} />
               <Route exact path="/leetcode/:name/:year" element={<LeetCode />} />
               <Route exact path="/github/:name/:year" element={<Github />} />
+              <Route exact path="/cart" element={<Cart />} />
+              <Route exact path="/gitlab/:name" element={<GitLab />} />
           </Routes>
         </Router>
       </MenuContext.Provider>
