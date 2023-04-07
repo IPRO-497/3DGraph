@@ -49,10 +49,12 @@ const Container = styled.li`
     padding: 0 calc(${props => props.border+"px"} + 10px);
     position: relative;
     width: 100%;
-    :hover{
-      background-color: rgb(131 213 255 / 19%);
-      border-color: rgb(32 144 220 / 60%);
-    }
+    background-color: rgb(131 213 255 / 19%);
+    border-color: rgb(32 144 220 / 60%);
+    /* font-weight: bold; */
+    color: white;
+    /* :hover{
+    } */
     ::before{
       background: radial-gradient(
         5em circle at var(--mouse-x) var(--mouse-y),
