@@ -1,6 +1,7 @@
 import { Edges } from "@react-three/drei"
 
 export const ContributionGraph = ({ data }) => {
+  
   return (
     data.map(
       (week, key) => 
@@ -9,7 +10,10 @@ export const ContributionGraph = ({ data }) => {
           if(day){
             return <mesh position={[0, day / 20, dayKey / 2]} key={dayKey}>
               <boxGeometry args={[0.5, day/10, 0.5]}/>
-              <meshBasicMaterial color="black" />
+              <meshBasicMaterial color={"black"} toneMapped={ false } />
+              <Edges 
+                color={"#525466"}
+              />
             </mesh>
           }else return null
         })}
