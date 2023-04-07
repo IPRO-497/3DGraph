@@ -4,5 +4,10 @@ export const MenuContext = createContext({
   show: false,
   setShow: () => {},
   itemList: [],
-  setItemList: () => {}
+  setItemList: () => {},
+  cartItems: {},
+  setCartItems: () => {},
+  addToCart: () => {},
+  cartCount: 0,
+  setCartCount: () => {}
 })
