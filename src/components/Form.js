@@ -4,15 +4,17 @@ import { useNavigate, useLocation } from "react-router-dom"
 import styled from "styled-components"
 import { MenuContext } from "../hooks/MenuHook"
 
-export const Form = ({setPreview}) => {
+export const Form = ({setPreview, setData}) => {
   const yearDiff = new Array(10).fill(0)
   const currYear = new Date().getFullYear()
   const [name, setName] = useState("")
+  const [yearHide, setYearHide] = useState(false)
   const form = useRef()
   const navigate = useNavigate()
   const locate = useLocation()
   const location = locate.pathname
   const [type, setType] = useState()
+  const {addToCart} = useContext(MenuContext)
 
   useEffect(() => {
     if(location === "/")setType("home")
