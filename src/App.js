@@ -16,6 +16,22 @@ import { Navbar } from './components/Navbar';
 function App() {
   const [itemList, setItemList] = useState([])
   const [show, setShow] = useState(false)
+  const [cartCount, setCartCount] = useState(0)
+  const [cartItems, setCartItems] = useState(localStorage["cartItems"] ? JSON.parse(localStorage["cartItems"]) : {})
+  const addToCart = (parameters) => {
+    // e?.preventDefault()
+    parameters.ship = parameters.ship.checked
+    parameters.download = parameters.download.checked
+    delete parameters.cart
+    delete parameters.preview
+    const tempCartItems = {...cartItems}
+    tempCartItems[parameters.name + parameters.year + parameters.website + parameters.model] = parameters 
+    setCartItems(tempCartItems)
+  }
+  useEffect(() => {
+    setCartCount(Object.keys(cartItems).length)
+    localStorage["cartItems"] = JSON.stringify(cartItems)
+  }, [cartItems, setCartCount])
   return (
     <HandContext.Provider value={{
       leftConstant: useRef([]),
