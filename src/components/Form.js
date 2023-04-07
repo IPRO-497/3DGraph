@@ -113,9 +113,9 @@ export const Form = ({setPreview, setData}) => {
           <option value="GitLab">GitLab</option>
         </select>
       </label>
-      <label htmlFor="data-type">
-        Data Type
-        <select name="data-type" id="data-type" defaultValue="contribution">
+      <label htmlFor="model">
+        Model
+        <select name="model" id="model" defaultValue="contribution">
           <option value="contribution">Contribution</option>
         </select>
       </label>
