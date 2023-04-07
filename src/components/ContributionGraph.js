@@ -1,3 +1,5 @@
+import { Edges } from "@react-three/drei"
+
 export const ContributionGraph = ({ data }) => {
   return (
     data.map(
