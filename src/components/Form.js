@@ -60,6 +60,32 @@ export const Form = ({setPreview, setData}) => {
     addToCart(getParams())
   }
 
+  useEffect(() => {
+    const formChange = (e) => {
+      const parameters = getParams()
+      if(parameters["website"] === "GitLab")setYearHide(true)
+      else setYearHide(false)
+      if(parameters["preview"]){
+        if(parameters.name && parameters.website !== "default" && parameters.preview){
+          parameters["preview"].disabled = false
+        }else{
+          parameters["preview"].disabled = true
+        }
+      }
+      if(parameters["cart"]){
+        if(!parameters["preview"].disabled && (parameters.download.checked || (parameters.ship.checked && parameters.quantity.length))){
+          parameters["cart"].disabled = false
+        }else parameters["cart"].disabled = true
+      }
+    }
+
+    const formCurrent = form?.current
+    formCurrent.addEventListener("change", formChange)
+    return () => {
+      formCurrent?.removeEventListener("change", formChange)
+    }
+  }, [])
+
   return (
     <Container ref={form}>
       <label htmlFor="name">
