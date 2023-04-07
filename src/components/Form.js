@@ -46,8 +46,20 @@ export const Form = ({setPreview, setData}) => {
   
   const Preview = (e) => {
     e.preventDefault()
+    const parameters = getParams()
+    setData({
+      "website": parameters.website,
+      "name": parameters.name,
+      "year": parameters.year
+    })
     setPreview(true)
   }
+
+  const addCart = (e) => {
+    e.preventDefault()
+    addToCart(getParams())
+  }
+
   return (
     <Container ref={form}>
       <label htmlFor="name">
