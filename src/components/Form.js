@@ -144,7 +144,7 @@ export const Form = ({setPreview, setData}) => {
 
 const Container = styled.form`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 50% 50%;
   flex-direction: column;
   width: min-content;
   min-width: 500px;
@@ -153,14 +153,28 @@ const Container = styled.form`
   border: 1px solid blue;
   padding: 1em;
   grid-gap: 0.1em;
+  h1{
+    grid-column: 1 / 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
   input, select, button{
     font-size: 1.2em;
   }
   input, select{
     margin-left: 10px;
   }
-  label[for="name"]{
+  input[type="number"]{
+    width: 100%;
+  }
+  label{
+    display: flex;
+    align-items: center;
     grid-column: 1 / 3;
+    &[for="name"]{
+      grid-column: 1 / 3;
+    }
   }
   select{
     max-width: 100%;
