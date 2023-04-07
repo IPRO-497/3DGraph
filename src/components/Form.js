@@ -98,12 +98,12 @@ export const Form = ({setPreview, setData}) => {
           value={name}
         />
       </label>
-      <label htmlFor="year">
+      {!yearHide && <label htmlFor="year">
         Year
         <select name="year" id="year" defaultValue={currYear - 1}>
           {yearDiff.map((num, diff) => <option value={currYear - diff} key={diff}>{currYear - diff}</option>)}
         </select>
-      </label>
+      </label>}
       <label htmlFor="website">
         Website
         <select name="website" id="website" defaultValue="default">
