@@ -88,6 +88,7 @@ export const Form = ({setPreview, setData}) => {
 
   return (
     <Container ref={form}>
+      {type === "item" && <h1>Add Item</h1>}
       <label htmlFor="name">
         Username
         <input type="text"
