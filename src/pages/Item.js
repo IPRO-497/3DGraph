@@ -2,14 +2,21 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import { Form } from '../components/Form'
 import { Github } from './Github'
+import { LeetCode } from './LeetCode'
 
 export const Item = () => {
   const [preview, setPreview] = useState(false)
+  const [data, setData] = useState({})
   return (
     <Container className={preview ? "preview" : "none"}>
-      <Form setPreview={setPreview}/>
+      <Form setPreview={setPreview} setData={setData}/>
       {preview && <>
-        <Github name="tayomide" year="2022"/>
+        {
+          data?.website.toLowerCase() === "github" ?
+          <Github name={data.name} year={data.year}/> :
+          data?.website.toLowerCase() === "leetcode" ?
+          <LeetCode name={data.name} year={data.year}/> : null
+        }
         <button id="close" onClick={() => setPreview(false)}>x</button>
       </>}
     </Container>
