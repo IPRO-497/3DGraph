@@ -110,6 +110,7 @@ export const Form = ({setPreview, setData}) => {
           <option value="default" disabled hidden>xyz.com</option>
           <option value="LeetCode">LeetCode</option>
           <option value="GitHub">GitHub</option>
+          <option value="GitLab">GitLab</option>
         </select>
       </label>
       <label htmlFor="data-type">
