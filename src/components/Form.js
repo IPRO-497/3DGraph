@@ -21,14 +21,18 @@ export const Form = ({setPreview, setData}) => {
     else if(location === "/item")setType("item")
   }, [location])
 
-  const submitForm = (e) => {
-    e.preventDefault()
+  const getParams = () => {
     const parameters = {}
     for(let i = 0; form.current[i]; i++){
-      if(form.current[i].tagName !== "BUTTON"){
+      if(form.current[i].tagName !== "BUTTON" && form.current[i].type !== "checkbox"){
         parameters[form.current[i].id] = form.current[i].value
+      }else{
+        parameters[form.current[i].id] = form.current[i]
       }
     }
+    return parameters
+  }
+
     if(parameters.name && parameters.year && parameters.website){
       navigate(`/${parameters.website.toLowerCase()}/${parameters.name.toLowerCase()}/${parameters.year}`)
     }
