@@ -4,7 +4,7 @@ import { Github } from './pages/Github';
 import { Home } from './pages/Home';
 import { LeetCode } from './pages/LeetCode';
 import { HandContext } from './hooks/HandContext';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { ButtonStyle } from './pages/ButtonStyle';
 import { MenuContext } from './hooks/MenuHook';
 import { useState } from 'react';
