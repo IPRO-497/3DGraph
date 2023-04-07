@@ -33,6 +33,12 @@ export const Form = ({setPreview, setData}) => {
     return parameters
   }
 
+  const submitForm = (e) => {
+    e.preventDefault()
+    const parameters = getParams()
+    if(parameters.name && parameters.website === "GitLab"){
+      navigate(`/${parameters.website.toLowerCase()}/${parameters.name.toLowerCase()}`)
+    }
     if(parameters.name && parameters.year && parameters.website){
       navigate(`/${parameters.website.toLowerCase()}/${parameters.name.toLowerCase()}/${parameters.year}`)
     }
