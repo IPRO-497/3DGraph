@@ -1,4 +1,4 @@
-const stripe = require('stripe')(process.env.REACT_APP_STRIPE_TEST_SECRET)
+const stripe = require('stripe')(process.env.REACT_APP_STRIPE_SECRET)
 
 const handler = async (event) => {
   const items = JSON.parse(event.body)
@@ -18,8 +18,8 @@ const handler = async (event) => {
   const session = await stripe.checkout.sessions.create({
     line_items: lineItems,
     mode: "payment",
-    success_url: "http://localhost:8888/success",
-    cancel_url: "http://localhost:8888/cancel"
+    success_url: `${event.queryStringParameters.origin}/success`,
+    cancel_url: `${event.queryStringParameters.origin}/cancel`
   });
   return {
     statusCode: 200,
