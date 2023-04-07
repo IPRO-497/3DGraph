@@ -9,6 +9,8 @@ import { LeetCodeModel } from "./icons/LeetCode"
 import { STLExporter } from "three/examples/jsm/exporters/STLExporter"
 import { HandContext } from '../hooks/HandContext'
 import { MenuContext } from '../hooks/MenuHook'
+import { Environment } from "@react-three/drei"
+import { GitLabModel } from "./icons/Gitlab"
 
 export const YearWeekDayGroup = ({convertedData, username, year, website, setTensor, tensor}) => {
   // Camera Logic
