@@ -21,3 +21,6 @@ export const ContributionGraph = ({ data }) => {
     )
   )
 }
+
+// Light Mode #40414f black
+// Dark mode black #40414f
