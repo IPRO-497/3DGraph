@@ -74,6 +74,18 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
   }, [scene, camera.position])
 
   return (
+    <>
+    <Environment
+      background
+      files={[
+        '/environmentMap/7/px.png',
+        '/environmentMap/7/nx.png',
+        '/environmentMap/7/py.png',
+        '/environmentMap/7/ny.png',
+        '/environmentMap/7/pz.png',
+        '/environmentMap/7/nz.png'
+      ]}
+    />
     <group
       onClick={() => setShow(!show)}
       ref={groupRef}
