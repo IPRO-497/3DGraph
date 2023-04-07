@@ -9,6 +9,9 @@ import { ButtonStyle } from './pages/ButtonStyle';
 import { MenuContext } from './hooks/MenuHook';
 import { useState } from 'react';
 import { Item } from './pages/Item';
+import { Cart } from './pages/Cart';
+import { GitLab } from './pages/GitLab';
+import { Navbar } from './components/Navbar';
 
 function App() {
   const [itemList, setItemList] = useState([])
