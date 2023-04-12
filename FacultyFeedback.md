@@ -56,5 +56,9 @@
 	- Ask for someone to join you in debugging and explain what each line is doing in the problem area
 
 ## Week 14 ##
+- Good progress
+- Good progress on UI
+- GUID to generate uninque ID
+- Dry run and final demo template - https://github.com/mschray/IPro497Sample/blob/main/Course%20Content/Final%20Presentation%20Template.pptx
 
 ## Week 15 ##
