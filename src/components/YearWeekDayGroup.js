@@ -11,12 +11,21 @@ import { HandContext } from '../hooks/HandContext'
 import { MenuContext } from '../hooks/MenuHook'
 import { Environment } from "@react-three/drei"
 import { GitLabModel } from "./icons/Gitlab"
+import { useControls, LevaInputs } from "leva"
 
 export const YearWeekDayGroup = ({convertedData, username, year, website, setTensor, tensor}) => {
   // Camera Logic
   const {positionConstant, rotationConstant} = useContext(HandContext)
   const { show, setShow, setItemList } = useContext(MenuContext)
   const groupRef = useRef()
+
+  const [controls, set] = useControls("text",() => ({
+    username: username,
+    year: {
+      value: year,
+      type: LevaInputs["STRING"]
+    }
+  }))
 
   const toggleControls = () => {
     positionConstant.current = [
