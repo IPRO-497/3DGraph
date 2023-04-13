@@ -52,4 +52,6 @@ const handler = async (event) => {
   }
 }
 
+// Make the stripe "price" be an environment variable that could be changed.
+
 module.exports = { handler }
