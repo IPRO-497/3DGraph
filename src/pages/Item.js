@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Form } from '../components/Form'
 import { Github } from './Github'
 import { LeetCode } from './LeetCode'
+import { GitLab } from "./GitLab"
 
 export const Item = () => {
   const [preview, setPreview] = useState(false)
@@ -15,7 +16,9 @@ export const Item = () => {
           data?.website.toLowerCase() === "github" ?
           <Github name={data.name} year={data.year}/> :
           data?.website.toLowerCase() === "leetcode" ?
-          <LeetCode name={data.name} year={data.year}/> : null
+          <LeetCode name={data.name} year={data.year}/> : 
+          data?.website.toLowerCase() === "gitlab" ?
+          <GitLab name={data.name} /> : null
         }
         <button id="close" onClick={() => setPreview(false)}>x</button>
       </>}
