@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import styled from "styled-components"
 import { CartItem } from '../components/CartItem'
 import { MenuContext } from '../hooks/MenuHook'
+import { v4 as uuidv4 } from 'uuid';
 
 export const Cart = () => {
   // const [cartItems, setCartItems] = useState(
