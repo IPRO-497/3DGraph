@@ -34,6 +34,9 @@ function App() {
     setCartCount(Object.keys(cartItems).length)
     localStorage["cartItems"] = JSON.stringify(cartItems)
   }, [cartItems, setCartCount])
+  useEffect(() => {
+    if(uuid)localStorage["uuid"] = cryptoJs.SHA256(uuid).toString()
+  }, [uuid])
   return (
     <HandContext.Provider value={{
       leftConstant: useRef([]),
