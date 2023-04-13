@@ -1,7 +1,11 @@
 import { Edges } from "@react-three/drei"
+import { useControls } from "leva"
 
 export const ContributionGraph = ({ data }) => {
-  
+  const controls = useControls("bar", {
+    BarColor: "black",
+    EdgeColor: "#525466"
+  })
   return (
     data.map(
       (week, key) => 
