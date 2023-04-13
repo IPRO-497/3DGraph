@@ -12,6 +12,7 @@ import { Item } from './pages/Item';
 import { Cart } from './pages/Cart';
 import { GitLab } from './pages/GitLab';
 import { Navbar } from './components/Navbar';
+import { Success } from './pages/Success';
 import cryptoJs from 'crypto-js';
 
 function App() {
