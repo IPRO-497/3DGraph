@@ -87,6 +87,13 @@ const Container = styled.nav`
     z-index: 3;
     font-weight: bold;
     padding: .5em 0;
+    text-shadow: var(--nsize) var(--size) 0 var(--edge-color),
+    var(--size) var(--size) 0 var(--edge-color),
+    var(--size) var(--nsize) 0 var(--edge-color),
+    var(--nsize) var(--nsize) 0 var(--edge-color);
+    --edge-color: #ffffff7a;
+    --size: 0.3px;
+    --nsize: -0.3px;
   }
   ul{
     display: flex;
