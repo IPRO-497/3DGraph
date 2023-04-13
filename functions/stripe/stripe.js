@@ -41,7 +41,7 @@ const handler = async (event) => {
   const session = await stripe.checkout.sessions.create({
     line_items: lineItems,
     mode: "payment",
-    success_url: `${event.queryStringParameters.origin}/success`,
+    success_url: `${event.queryStringParameters.origin}/success/${items.guid}`,
     cancel_url: `${event.queryStringParameters.origin}/cancel`
   });
   return {
