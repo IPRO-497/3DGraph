@@ -23,12 +23,17 @@ function App() {
   const [uuid, setUuid] = useState()
   const addToCart = (parameters) => {
     // e?.preventDefault()
-    parameters.ship = parameters.ship.checked
-    parameters.download = parameters.download.checked
+    const quantity = parameters.quantity
+    const download = parameters.download.checked
+    const ship = parameters.ship.checked
     delete parameters.cart
     delete parameters.preview
+    delete parameters.quantity
+    delete parameters.download
+    delete parameters.ship
     const tempCartItems = {...cartItems}
-    tempCartItems[parameters.name + parameters.year + parameters.website + parameters.model] = parameters 
+    if(download)tempCartItems[parameters.name + parameters.year + parameters.website + parameters.model+"download"] = {...parameters, download }
+    if(ship)tempCartItems[parameters.name + parameters.year + parameters.website + parameters.model+"ship"] = {...parameters, ship, quantity }
     setCartItems(tempCartItems)
   }
   useEffect(() => {
