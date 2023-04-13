@@ -52,8 +52,11 @@ const Container = styled.nav`
   width: 100%;
   z-index: 3;
   font-size: 1.08em;
-  background: rgb(32 144 220 / 10%);
-  color: #12037e;
+  background: #fafafa1a;
+  /* rgb(32 144 220 / 10%) */
+  color: black;
+  padding: 0 1.5em;
+  height: 2.2em;
   ::before{
     background: radial-gradient(
       5em circle at var(--mouse-x) var(--mouse-y),
@@ -91,17 +94,17 @@ const Container = styled.nav`
   }
   .nav-list{
     justify-content: space-between;
-    > li{
-      padding: 0 .5em;
-    }
     .home-container, .actions-list li{
       display: flex;
       flex-direction: row;
     }
     .actions-container{
-      min-width: 20%;
+      width: max-content;
       .actions-list{
         justify-content: space-between;
+        li:nth-child(2){
+          margin-left: 1.5em;
+        }
         .cart::after{
           content: ${props => props.cart !== 0 && "'" + props.cart + "'"};
           border-left: 1px solid black;
