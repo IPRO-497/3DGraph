@@ -12,6 +12,7 @@ export const Cart = ({setUuid}) => {
   const {setCartItems, cartItems} = useContext(MenuContext)
 
   const checkout = (e) => {
+    const uuid = uuidv4()
     fetch(`/.netlify/functions/stripe?origin=${window.location.origin}`,{
       method: 'POST',
       body: JSON.stringify(cartItems),
