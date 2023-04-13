@@ -14,14 +14,18 @@ export const CartItem = ({parameters}) => {
   }
   return (
     <Container>
-      <p>{parameters.name}</p>
-      <p>{parameters.year}</p>
-      <p>{parameters.website}</p>
-      <p>{parameters.model}</p>
-      {parameters.ship && <p>Ship {parameters.quantity} models</p>}
-      {parameters.download && <p>Download model</p>}
-      <button>Edit</button>
-      <button onClick={deleteItem}>Delete</button>
+      <button className='edit'>Edit</button>
+      <div className='data-part'>
+        <p>{parameters.name}</p>
+        <p>{parameters.year}</p>
+        <p>{parameters.website}</p>
+        <p>{parameters.model}</p>
+        <p>{parameters.ship ? "ship" : "download"}</p>
+        <p>{parameters.ship ? parameters.quantity : 1}</p>
+      </div>
+      <button onClick={deleteItem}>
+        <CloseIcon />
+      </button>
     </Container>
   )
 }
