@@ -119,7 +119,7 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
           position={[-53 * (0.3 / 8), -1.4 * 0.27, 4 * 0.258]}
           ref={name}
         >
-          {username}
+          {controls.username}
           <meshBasicMaterial color="BLACK" />
         </Text3D>
 
@@ -129,7 +129,7 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
           rotation={[-Math.PI*(0.5 - 0.35241638235), 0, 0]}
           position={[53 * (0.3 / 8) + 0.3, -1.4 * 0.27, 4 * 0.258]}
         >
-          {year}
+          {controls.year}
           <meshBasicMaterial color="BLACK" />
         </Text3D>
         
