@@ -82,6 +82,10 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
     camera.position.y = 1
   }, [scene, camera.position])
 
+  useEffect(() => {
+    set({username: username, year: year})
+  }, [set, username, year])
+
   return (
     <>
     <Environment
