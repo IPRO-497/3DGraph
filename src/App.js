@@ -69,6 +69,7 @@ function App() {
               <Route exact path="/github/:name/:year" element={<Github />} />
               <Route exact path="/cart" element={<Cart setUuid={setUuid}/>} />
               <Route exact path="/gitlab/:name" element={<GitLab />} />
+              <Route exact path="/success/:id" element={<Success />} />
           </Routes>
         </Router>
       </MenuContext.Provider>
