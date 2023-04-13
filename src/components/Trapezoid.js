@@ -1,7 +1,11 @@
 import { useEffect, useRef} from 'react'
+import { useControls } from 'leva'
 
 export const Trapezoid = () => {
   const geometry = useRef()
+  const controls = useControls("base", {
+    color: "#494a56"
+  })
   useEffect(() => {
     geometry.current.computeVertexNormals()
   }, [])
