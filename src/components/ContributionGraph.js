@@ -14,9 +14,9 @@ export const ContributionGraph = ({ data }) => {
           if(day){
             return <mesh position={[0, day / 20, dayKey / 2]} key={dayKey}>
               <boxGeometry args={[0.5, day/10, 0.5]}/>
-              <meshBasicMaterial color={"black"} toneMapped={ false } />
+              <meshBasicMaterial color={controls.BarColor} toneMapped={ false } />
               <Edges 
-                color={"#525466"}
+                color={controls.EdgeColor}
               />
             </mesh>
           }else return null
