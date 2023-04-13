@@ -33,5 +33,28 @@ export const CartItem = ({parameters}) => {
 const Container = styled.li`
   display: flex;
   flex-direction: row;
-  gap: 2ch
+  width: 100%;
+  .edit{
+    padding: 0;
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    margin-right: 1em;
+    color: #acacac;
+    width: 2em;
+  }
+  .data-part{
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - 1.5em);
+    p{
+      width: 16.6666666667%;
+      text-transform: capitalize;
+      display: flex;
+      align-items: center;
+    }
+  }
+  button{
+    padding: 0;
+  }
 `
