@@ -8,7 +8,7 @@ export const CartItem = ({parameters}) => {
   const deleteItem = (e) => {
     e.preventDefault()
     setCartItems((prevCartItems) => {
-      delete prevCartItems[parameters.name + parameters.year + parameters.website + parameters.model]
+      delete prevCartItems[parameters.name + parameters.year + parameters.website + parameters.model+(parameters.ship? "ship" : "download")]
       return {...prevCartItems}
     })
   }
