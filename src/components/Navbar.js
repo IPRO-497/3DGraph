@@ -36,9 +36,9 @@ export const Navbar = () => {
             <li>
               <Link to="./cart" className='cart'>Cart</Link>
             </li>
-            <li>
+            {/* <li>
               <button className='menu'>Menu</button>
-            </li>
+            </li> */}
           </ul>
         </li>
       </ul>
