@@ -19,6 +19,7 @@ function App() {
   const [show, setShow] = useState(false)
   const [cartCount, setCartCount] = useState(0)
   const [cartItems, setCartItems] = useState(localStorage["cartItems"] ? JSON.parse(localStorage["cartItems"]) : {})
+  const [uuid, setUuid] = useState()
   const addToCart = (parameters) => {
     // e?.preventDefault()
     parameters.ship = parameters.ship.checked
