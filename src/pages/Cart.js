@@ -4,7 +4,7 @@ import { CartItem } from '../components/CartItem'
 import { MenuContext } from '../hooks/MenuHook'
 import { v4 as uuidv4 } from 'uuid';
 
-export const Cart = () => {
+export const Cart = ({setUuid}) => {
   // const [cartItems, setCartItems] = useState(
   //   JSON.parse(localStorage["cartItems"]) ||
   //   {}
