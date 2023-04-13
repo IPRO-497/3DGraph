@@ -57,7 +57,7 @@ export const Trapezoid = () => {
         ])}
       />
       </bufferGeometry>
-      <meshBasicMaterial color="#494a56" />
+      <meshBasicMaterial color={controls.color} />
     </mesh>
   )
 }
