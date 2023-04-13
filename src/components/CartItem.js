@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { MenuContext } from '../hooks/MenuHook'
-
+import CloseIcon from '@mui/icons-material/Close';
 
 export const CartItem = ({parameters}) => {
   const {setCartItems} = useContext(MenuContext)
