@@ -52,7 +52,7 @@ export const Form = ({setPreview, setData}) => {
     if(parameters.name && parameters.website === "GitLab"){
       navigate(`/${parameters.website.toLowerCase()}/${parameters.name.toLowerCase()}`)
     }
-    if(parameters.name && parameters.year && parameters.website){
+    if(parameters.name && parameters.year && parameters.website !== "default"){
       navigate(`/${parameters.website.toLowerCase()}/${parameters.name.toLowerCase()}/${parameters.year}`)
     }
   }
