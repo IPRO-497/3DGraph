@@ -98,18 +98,19 @@ export const Form = ({setPreview, setData}) => {
       const parameters = getParams()
       if(parameters["website"] === "GitLab")setYearHide(true)
       else setYearHide(false)
-      if(parameters["preview"]){
-        if(parameters.name && parameters.website !== "default" && parameters.preview){
-          parameters["preview"].disabled = false
-        }else{
-          parameters["preview"].disabled = true
-        }
-      }
-      if(parameters["cart"]){
-        if(!parameters["preview"].disabled && (parameters.download.checked || (parameters.ship.checked && parameters.quantity.length))){
-          parameters["cart"].disabled = false
-        }else parameters["cart"].disabled = true
-      }
+      // if(parameters["preview"]){
+      //   if(parameters.name && parameters.website !== "default" && parameters.preview){
+      //     parameters["preview"].disabled = false
+      //   }else{
+      //     parameters["preview"].disabled = true
+      //   }
+      // }
+      // if(parameters["cart"]){
+      //   if(!parameters["preview"].disabled && (parameters.download.checked || (parameters.ship.checked && parameters.quantity.length))){
+      //     parameters["cart"].disabled = false
+      //   }else parameters["cart"].disabled = true
+      // }
+      // formLint()
     }
 
     const formCurrent = form?.current
