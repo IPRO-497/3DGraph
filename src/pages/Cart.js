@@ -65,8 +65,55 @@ export const Cart = ({setUuid}) => {
 
 // price_1MrsfJI1aNradUj24XS9HdlY - Github Contribution Download
 
-const Container = styled.ul`
+const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  padding: 4em 0;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 3em;
+  height: 100%;
+  width: 100%;
+  .cart{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 50em;
+    padding: 3em 3em 3em 3em;
+    background-color: #fafafa;
+    border-radius: 0.2em;
+    h1{
+      width: 100%;
+      text-align: center;
+      margin-bottom: 0.2em;
+    }
+    > p{
+      width: 100%;
+      text-align: center;
+      margin-bottom: 3em;
+    }
+    .table-name{
+      display: flex;
+      flex-direction: row;
+      width: calc(100% - 3.5em);
+      margin-left: 2em;
+      color: #acacac;
+      border-bottom: 1px solid #cdcdcd;
+      padding-bottom: 0.7em;
+      li{
+        width: 16.6666666667%;
+      }
+    }
+    .cart-items{
+      padding-top: 1.6em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+    .cart-checkout{
+      background-color: black;
+      color: white;
+      font-size: 1em;
+      height: 2.2em;
+      margin-top: 1.6em;
+    }
+  }
 `
