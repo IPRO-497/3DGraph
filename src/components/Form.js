@@ -78,7 +78,19 @@ export const Form = ({setPreview, setData}) => {
 
   const addCart = (e) => {
     e.preventDefault()
-    addToCart(getParams())
+    const parameters = getParams()
+    if(!parameters.name)setError(prevError => {
+      return {...prevError, "name": "empty-text"}
+    })
+    if(parameters.website === "default")setError(prevError => {
+      return {...prevError, "website": "default-dropdown"}
+    })
+    if(!parameters.download.checked)setError(prevError => {
+      return {...prevError, "cart": "no-checkbox-select"}
+    })
+    if(parameters.name && parameters.website !== "default" && parameters.download.checked){
+      addToCart(parameters)
+    }
   }
 
   useEffect(() => {
