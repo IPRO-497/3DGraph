@@ -15,11 +15,18 @@ export const Form = ({setPreview, setData}) => {
   const location = locate.pathname
   const [type, setType] = useState()
   const {addToCart} = useContext(MenuContext)
-
-  useEffect(() => {
-    if(location === "/")setType("home")
-    else if(location === "/item")setType("item")
-  }, [location])
+  const errorMessage = {
+    "empty-text": "Please fill out this field with characters",
+    "empty-number": "Please enter the quantity",
+    "default-dropdown": "Please choose an option",
+    "no-checkbox-select": "Please choose at least one option to add to cart"
+  }
+  const [error, setError] = useState({
+    "name": 0,
+    "website": 0,
+    "quantity": 0,
+    "cart": 0
+  })
 
   const getParams = () => {
     const parameters = {}
