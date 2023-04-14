@@ -57,7 +57,7 @@ export const Form = ({setPreview, setData}) => {
     }
   }
   
-  const Preview = (e) => {
+  const previewForm = (e) => {
     e.preventDefault()
     const parameters = getParams()
     setData({
@@ -148,8 +148,8 @@ export const Form = ({setPreview, setData}) => {
         </label>
       </>}
       {type === "home" && <button id="get" onClick={submitForm}>Display model</button>}
-      {type === "item" && <button id="preview" onClick={Preview}>Preview</button>}
       {type === "item" && <button id="cart" onClick={addCart}>Add to Cart</button>}
+      {type === "item" && <button id="preview" className="trans" onClick={previewForm}>Preview</button>}
       
     </Container>
   )
