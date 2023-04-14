@@ -13,9 +13,10 @@ export const Cart = ({setUuid}) => {
 
   const checkout = (e) => {
     const uuid = uuidv4()
+    setUuid(uuid)
     fetch(`/.netlify/functions/stripe?origin=${window.location.origin}`,{
       method: 'POST',
-      body: JSON.stringify(cartItems),
+      body: JSON.stringify({...cartItems, guid: uuid}),
       headers: {'Content-Type': 'application/json'}
     })
     .then(response => response.json())
