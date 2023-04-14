@@ -28,8 +28,34 @@ export const Cart = ({setUuid}) => {
 
   return (
     <Container>
-      {Object.values(cartItems).map((item, key) => <CartItem key={key} parameters={item} setCartItems={setCartItems}/>)}
-      <button onClick={checkout}>Checkout</button>
+      <div className='cart'>
+        <h1>CART PAGE</h1>
+        <p>Complete Your Purchase</p>
+        <ul className='table-name'>
+          <li>
+            <p>Username</p>
+          </li>
+          <li>
+            <p>Year</p>
+          </li>
+          <li>
+            <p>Website</p>
+          </li>
+          <li>
+            <p>Datatype</p>
+          </li>
+          <li>
+            <p>Type</p>
+          </li>
+          <li>
+            <p>Quantity</p>
+          </li>
+        </ul>
+        <ul className='cart-items'>
+          {Object.values(cartItems).map((item, key) => <CartItem key={key} parameters={item} setCartItems={setCartItems}/>)}
+        </ul>
+        <button onClick={checkout} className='cart-checkout'>Checkout</button>
+      </div>
     </Container>
   )
 }
