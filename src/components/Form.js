@@ -43,6 +43,12 @@ export const Form = ({setPreview, setData}) => {
   const submitForm = (e) => {
     e.preventDefault()
     const parameters = getParams()
+    if(!parameters.name)setError(prevError => {
+      return {...prevError, "name": "empty-text"}
+    })
+    if(parameters.website === "default")setError(prevError => {
+      return {...prevError, "website": "default-dropdown"}
+    })
     if(parameters.name && parameters.website === "GitLab"){
       navigate(`/${parameters.website.toLowerCase()}/${parameters.name.toLowerCase()}`)
     }
