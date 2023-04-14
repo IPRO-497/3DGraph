@@ -60,12 +60,20 @@ export const Form = ({setPreview, setData}) => {
   const previewForm = (e) => {
     e.preventDefault()
     const parameters = getParams()
-    setData({
-      "website": parameters.website,
-      "name": parameters.name,
-      "year": parameters.year
+    if(!parameters.name)setError(prevError => {
+      return {...prevError, "name": "empty-text"}
     })
-    setPreview(true)
+    if(parameters.website === "default")setError(prevError => {
+      return {...prevError, "website": "default-dropdown"}
+    })
+    if(parameters.name && parameters.website !== "default"){
+      setData({
+        "website": parameters.website,
+        "name": parameters.name,
+        "year": parameters.year
+      })
+      setPreview(true)
+    }
   }
 
   const addCart = (e) => {
