@@ -163,8 +163,7 @@ export const Form = ({setPreview, setData}) => {
         <input type="text"
           id="name"
           placeholder="tayomide"
-          onChange={e => setName(e.target.value.trim())}
-          value={name}
+          defaultValue={name}
         />
       </label>
       {!yearHide && <label htmlFor="year">
