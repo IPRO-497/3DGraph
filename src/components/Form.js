@@ -227,46 +227,128 @@ export const Form = ({setPreview, setData}) => {
 }
 
 const Container = styled.form`
+  width: 100%;
+  max-width: 34em;
   display: grid;
-  grid-template-columns: 50% 50%;
-  flex-direction: column;
-  width: min-content;
-  min-width: 500px;
-  height: max-content;
-  max-height: 600px;
-  border: 1px solid blue;
-  padding: 1em;
-  grid-gap: 0.1em;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1.2em;
+  padding: 5em 3em 5em 3em;
+  background-color: #fafafa;
+  border-radius: 0.2em;
+  .error{
+    font-size: 0.9em;
+    color: red;
+    margin-top: 0.2em;
+  }
   h1{
     grid-column: 1 / 3;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  input, select, button{
-    font-size: 1.2em;
-  }
-  input, select{
-    margin-left: 10px;
-  }
-  input[type="number"]{
-    width: 100%;
+    text-align: center;
+    padding-bottom: 0.5em;
   }
   label{
     display: flex;
-    align-items: center;
-    grid-column: 1 / 3;
-    &[for="name"]{
-      grid-column: 1 / 3;
+    flex-direction: column;
+    input, select{
+      margin-top: 0.6em;
+      line-height: 2em;
+      height: 2.2em;
+      font-size: 1em;
+      padding: 0 0.5em;
+      outline: none;
+      border: none;
+      option{
+        font-size: 1.2em;
+      }
     }
   }
-  select{
-    max-width: 100%;
-    width: fit-content;
-    border: 0;
+  label[for="name"]{
+    grid-column: 1 / 3;
   }
   button{
-    background-color: lightblue;
     grid-column: 1 / 3;
+    font-size: 1em;
+    height: 2.2em;
+    background-color: black;
+    color: white;
+    margin-top: 1.6em;
+    border: 1px solid black;
+    & ~ button{
+      margin-top: 0;
+    }
+    &.trans{
+      background-color: transparent;
+      color: black;
+    }
+  }
+  #cart-item-container ~ button{
+    margin-top: 0;
+  }
+  #cart-item-container{
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / 3;
+    margin: 0.3em 0;
+    #cart-details{
+      display: flex;
+      flex-direction: row;
+      gap: 2em;
+      justify-content: center;
+      position: relative;
+      label{
+        flex-direction: row;
+        font-size: 0.8em;
+        align-items: center;
+        input[type="number"]{
+          margin: 0;
+          max-width: 11ch;
+          &::-webkit-outer-spin-button,
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+          appearance: none;
+          -moz-appearance: none;
+        }
+        input[type="checkbox"]{
+          margin: 0 0 0 1em;
+        }
+      }
+    }
+    label[for="ship"], label[for="download"], label[for="name"]{
+      cursor: pointer;
+    }
+    .tooltip {
+      position: relative;
+      color: rgba(0 0 0 / 50%);
+      .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        bottom: 0;
+        left: calc(100% + 1em);
+        z-index: 1;
+        ::after{
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 100%;
+          margin-top: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: transparent #555 transparent transparent;
+        }
+      }
+      :hover .tooltiptext {
+        visibility: visible;
+      }
+    }
+    .cart-details-error p.error{
+      text-align: center;
+    }
   }
 `
