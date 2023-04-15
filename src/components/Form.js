@@ -115,7 +115,36 @@ export const Form = ({setPreview, setData}) => {
 
     const formCurrent = form?.current
     formCurrent.addEventListener("change", formChange)
+
+    const nameInput = document.querySelector("input#name")
+    const websiteInput = document.querySelector("select#website")
+    const downloadInput = document.querySelector("input#download")
+
+    const onNameChange = (e) => {
+      setName(e.target.value.trim())
+      if(e.target.value.length)setError(prevError => {
+        return {...prevError, "name": 0}
+      })
+    }
+    const onWebsiteChange = (e) => {
+      if(e.target.value !== "default")setError(prevError => {
+        return {...prevError, "website": 0}
+      })
+    }
+    const onDownloadChange = (e) => {
+      if(e.target.checked)setError(prevError => {
+        return {...prevError, "cart": 0}
+      })
+    }
+
+    nameInput?.addEventListener("input", onNameChange)
+    websiteInput?.addEventListener("input", onWebsiteChange)
+    downloadInput?.addEventListener("input", onDownloadChange)
+    
     return () => {
+      nameInput?.removeEventListener("input", onNameChange)
+      websiteInput?.removeEventListener("input", onWebsiteChange)
+      downloadInput?.removeEventListener("input", onDownloadChange)
       formCurrent?.removeEventListener("change", formChange)
     }
   }, [])
