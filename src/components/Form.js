@@ -165,6 +165,7 @@ export const Form = ({setPreview, setData}) => {
           placeholder="tayomide"
           defaultValue={name}
         />
+        {Boolean(error.name) && <p className="error">{errorMessage[error.name]}</p>}
       </label>
       {!yearHide && <label htmlFor="year">
         Year
@@ -180,6 +181,7 @@ export const Form = ({setPreview, setData}) => {
           <option value="GitHub">GitHub</option>
           <option value="GitLab">GitLab</option>
         </select>
+        {Boolean(error.website) && <p className="error">{errorMessage[error.website]}</p>}
       </label>
       <label htmlFor="model">
         Model
