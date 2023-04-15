@@ -190,20 +190,34 @@ export const Form = ({setPreview, setData}) => {
         </select>
       </label>
       
-      {type === "item" && <>
-        <label htmlFor="quantity">
-          Quantity
-          <input type="number" id="quantity" placeholder="1" />
-        </label>
-        <label htmlFor="download">
-          Download Model
-          <input id="download" type="checkbox" />
-        </label>
-        <label htmlFor="ship">
-          Order Model
-          <input id="ship" type="checkbox" />
-        </label>
-      </>}
+      {type === "item" && <ul id="cart-item-container">
+        <li>
+          <ul id="cart-details">
+            <li>
+              <label htmlFor="download">
+                Download Model
+                <input id="download" type="checkbox" />
+              </label>
+            </li>
+            <li className="tooltip">
+              <label htmlFor="ship">
+                Order Model
+                <input id="ship" type="checkbox" disabled/>
+              </label>
+              <span className="tooltiptext">Coming Soon</span>
+            </li>
+            {/* <li>
+              <label htmlFor="quantity">
+                <input type="number" id="quantity" placeholder="Quantity" />
+                {Boolean(error.quantity) && <p className="error">{errorMessage[error.quantity]}</p>}
+              </label>
+            </li> */}
+          </ul>
+        </li>
+        <li className="cart-details-error">
+          {Boolean(error.cart) && <p className="error">{errorMessage[error.cart]}</p>}
+        </li>
+      </ul>}
       {type === "home" && <button id="get" onClick={submitForm}>Display model</button>}
       {type === "item" && <button id="cart" onClick={addCart}>Add to Cart</button>}
       {type === "item" && <button id="preview" className="trans" onClick={previewForm}>Preview</button>}
