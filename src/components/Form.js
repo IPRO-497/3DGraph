@@ -149,6 +149,11 @@ export const Form = ({setPreview, setData}) => {
     }
   }, [])
 
+  useEffect(() => {
+    if(location === "/")setType("home")
+    else if(location === "/item")setType("item")
+  }, [location])
+
   return (
     <Container ref={form}>
       {type === "home" && <h1>Model Details</h1>}
