@@ -25,7 +25,7 @@ export const CartItem = ({parameters}) => {
     }}/>
     :
     <Container>
-      <button className='edit'>Edit</button>
+      <button className='edit' onClick={() => setRedirect(!redirect)}>Edit</button>
       <div className='data-part'>
         <p>{parameters.name}</p>
         <p>{parameters.year}</p>
