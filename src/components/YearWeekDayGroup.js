@@ -6,12 +6,11 @@ import { useThree } from '@react-three/fiber'
 import { Text3D } from "@react-three/drei"
 import { GitHubModel } from "./icons/Github"
 import { LeetCodeModel } from "./icons/LeetCode"
-import { STLExporter } from "three/examples/jsm/exporters/STLExporter"
+// import { STLExporter } from "three/examples/jsm/exporters/STLExporter"
 import { HandContext } from '../hooks/HandContext'
 import { MenuContext } from '../hooks/MenuHook'
 import { Environment } from "@react-three/drei"
 import { GitLabModel } from "./icons/Gitlab"
-import { useControls, LevaInputs } from "leva"
 
 export const YearWeekDayGroup = ({convertedData, username, year, website, setTensor, tensor}) => {
   // Camera Logic
@@ -49,18 +48,19 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
 
   // Download Logic
   const { scene, camera } = useThree()
-  const link = document.createElement('a')
-  const save = (blob, filename) => {
-    link.href = URL.createObjectURL(blob)
-    link.download = filename
-    link.click()
-  }
-  const saveArrayBuffer = (buffer, fileName) => {
-    save(new Blob([buffer], { type: "text.plain" }), fileName)
-  }
+  // const link = document.createElement('a')
+  // const save = (blob, filename) => {
+  //   link.href = URL.createObjectURL(blob)
+  //   link.download = filename
+  //   link.click()
+  // }
+  // const saveArrayBuffer = (buffer, fileName) => {
+  //   save(new Blob([buffer], { type: "text.plain" }), fileName)
+  // }
   const download = () => {
-    const exporter = new STLExporter().parse(scene)
-    saveArrayBuffer(exporter, `${website[0].toUpperCase() + website.slice(1)}Contribution.stl`)
+    // const exporter = new STLExporter().parse(scene)
+    // saveArrayBuffer(exporter, `${website[0].toUpperCase() + website.slice(1)}Contribution.stl`)
+    setRedirect(true)
   }
 
   setItemList([
