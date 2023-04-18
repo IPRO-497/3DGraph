@@ -12,7 +12,7 @@ import { MenuContext } from '../hooks/MenuHook'
 import { Environment } from "@react-three/drei"
 import { GitLabModel } from "./icons/Gitlab"
 
-export const YearWeekDayGroup = ({convertedData, username, year, website, setTensor, tensor}) => {
+export const YearWeekDayGroup = ({convertedData, username, year, website, setTensor, tensor, setRedirect}) => {
   // Camera Logic
   const {positionConstant, rotationConstant} = useContext(HandContext)
   const { show, setShow, setItemList } = useContext(MenuContext)
