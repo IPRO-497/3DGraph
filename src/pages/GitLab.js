@@ -7,7 +7,7 @@ import { MotionCamera } from '../components/MotionCamera'
 import { TensorFlow } from '../components/TensorFlow'
 import { MenuContext } from '../hooks/MenuHook'
 import { ButtonStyle } from './ButtonStyle'
-import { useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 
 export const GitLab = ({name, year}) => {
   // Names: feistel, dnsmichi
@@ -19,6 +19,7 @@ export const GitLab = ({name, year}) => {
   // Tensor Logic - Change to Context
   const [tensor, setTensor] = useState(false)
   const {show} = useContext(MenuContext)
+  const [redirect, setRedirect] = useState(false)
 
   useEffect(() => {
     const converter = require("../converter/GitLab")
@@ -38,6 +39,13 @@ export const GitLab = ({name, year}) => {
       {
         show &&
         <ButtonStyle />
+      }
+      {
+        redirect && <Navigate to={"/item"} state={{
+          name:name,
+          website:"GitLab",
+          download:true
+        }}/>
       }
       <Canvas className='canvas'>
         {tensor ? <MotionCamera />: <OrbitControls />}
