@@ -13,7 +13,17 @@ export const CartItem = ({parameters}) => {
       return {...prevCartItems}
     })
   }
+  const [redirect, setRedirect] = useState(false)
   return (
+    redirect ? 
+    <Navigate to={"/item"} state={{
+      name:parameters.name,
+      year:parameters.year,
+      website:parameters.website,
+      model:parameters.model,
+      download:parameters.download
+    }}/>
+    :
     <Container>
       <button className='edit'>Edit</button>
       <div className='data-part'>
