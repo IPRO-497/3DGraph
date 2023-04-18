@@ -39,7 +39,14 @@ export const Github = ({name, year}) => {
     <Canvas className='canvas'>
       {tensor ? <MotionCamera />: <OrbitControls />}
       <OrbitControls />
-      {convertedData && <YearWeekDayGroup convertedData={convertedData} username={name} year={year} website="github" setTensor={setTensor} tensor={tensor} />}
+      {convertedData && <YearWeekDayGroup
+        convertedData={convertedData}
+        username={name} year={year}
+        website="github"
+        setTensor={setTensor}
+        tensor={tensor}
+        setRedirect={setRedirect}
+      />}
     </Canvas>
     </>
   )
