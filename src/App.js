@@ -66,6 +66,7 @@ function App() {
       }}>
         <Router>
           <Navbar />
+          <LevaGUI />
           <Routes>
               <Route exact path="/" element={<Home />} />
               <Route exact path='/style/button' element={ <ButtonStyle />} />
