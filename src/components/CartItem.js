@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import { MenuContext } from '../hooks/MenuHook'
 import CloseIcon from '@mui/icons-material/Close';
+import { Navigate } from "react-router-dom"
 
 export const CartItem = ({parameters}) => {
   const {setCartItems} = useContext(MenuContext)
