@@ -93,32 +93,16 @@ export const Form = ({setPreview, setData}) => {
     }
   }
 
-  useEffect(() => {
-    const formChange = (e) => {
-      const parameters = getParams()
-      if(parameters["website"] === "GitLab")setYearHide(true)
-      else setYearHide(false)
-      // if(parameters["preview"]){
-      //   if(parameters.name && parameters.website !== "default" && parameters.preview){
-      //     parameters["preview"].disabled = false
-      //   }else{
-      //     parameters["preview"].disabled = true
-      //   }
-      // }
-      // if(parameters["cart"]){
-      //   if(!parameters["preview"].disabled && (parameters.download.checked || (parameters.ship.checked && parameters.quantity.length))){
-      //     parameters["cart"].disabled = false
-      //   }else parameters["cart"].disabled = true
-      // }
-      // formLint()
-    }
+  const onDownloadChange = (e) => {
+    if(e.target.checked)setError(prevError => {
+      return {...prevError, "cart": 0}
+    })
+  }
 
-    const formCurrent = form?.current
-    formCurrent.addEventListener("change", formChange)
+  useEffect(() => {
 
     const nameInput = document.querySelector("input#name")
     const websiteInput = document.querySelector("select#website")
-    const downloadInput = document.querySelector("input#download")
 
     const onNameChange = (e) => {
       setName(e.target.value.trim())
@@ -130,22 +114,16 @@ export const Form = ({setPreview, setData}) => {
       if(e.target.value !== "default")setError(prevError => {
         return {...prevError, "website": 0}
       })
-    }
-    const onDownloadChange = (e) => {
-      if(e.target.checked)setError(prevError => {
-        return {...prevError, "cart": 0}
-      })
+      if(e.target.value === "GitLab")setYearHide(true)
+      else setYearHide(false)
     }
 
     nameInput?.addEventListener("input", onNameChange)
     websiteInput?.addEventListener("input", onWebsiteChange)
-    downloadInput?.addEventListener("input", onDownloadChange)
     
     return () => {
       nameInput?.removeEventListener("input", onNameChange)
       websiteInput?.removeEventListener("input", onWebsiteChange)
-      downloadInput?.removeEventListener("input", onDownloadChange)
-      formCurrent?.removeEventListener("change", formChange)
     }
   }, [])
 
@@ -153,6 +131,27 @@ export const Form = ({setPreview, setData}) => {
     if(location === "/")setType("home")
     else if(location === "/item")setType("item")
   }, [location])
+
+  useEffect(() => {
+    if(locate.state){
+      for(let i = 0; form.current[i]; i++){
+        if(locate.state[form.current[i].id]){
+          if(form.current[i].type === "checkbox"){
+            form.current[i].defaultChecked = locate.state[form.current[i].id]
+            form.current[i].dispatchEvent(new Event("input"))
+          }
+          else if(form.current[i].tagName === "INPUT"){
+            form.current[i].value = locate.state[form.current[i].id]
+            form.current[i].dispatchEvent(new Event("input"))
+          }
+          else if(form.current[i].tagName === "SELECT"){
+            form.current[i].value = locate.state[form.current[i].id]
+            form.current[i].dispatchEvent(new Event("input"))
+          }
+        }
+      }
+    }
+  }, [locate, type])
 
   return (
     <Container ref={form}>
@@ -196,7 +195,7 @@ export const Form = ({setPreview, setData}) => {
             <li>
               <label htmlFor="download">
                 Download Model
-                <input id="download" type="checkbox" />
+                <input id="download" type="checkbox" onInput={onDownloadChange}/>
               </label>
             </li>
             <li className="tooltip">
@@ -206,12 +205,6 @@ export const Form = ({setPreview, setData}) => {
               </label>
               <span className="tooltiptext">Coming Soon</span>
             </li>
-            {/* <li>
-              <label htmlFor="quantity">
-                <input type="number" id="quantity" placeholder="Quantity" />
-                {Boolean(error.quantity) && <p className="error">{errorMessage[error.quantity]}</p>}
-              </label>
-            </li> */}
           </ul>
         </li>
         <li className="cart-details-error">
