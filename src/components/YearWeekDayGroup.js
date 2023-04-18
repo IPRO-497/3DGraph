@@ -24,8 +24,11 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
     year: {
       value: year,
       type: LevaInputs["STRING"]
-    }
-  }))
+    },
+    "Reset Values": button(() => set({username: username, year: year}))
+  }),{
+    order: 1
+  })
 
   const toggleControls = () => {
     positionConstant.current = [
