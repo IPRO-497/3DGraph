@@ -96,12 +96,6 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
     set({username: username, year: year})
   }, [set, username, year])
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     download()
-  //   }, 1000);
-  // }, [download])
-
   return (
     <>
     <Environment
