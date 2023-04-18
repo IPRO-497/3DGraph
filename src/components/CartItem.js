@@ -1,7 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import { MenuContext } from '../hooks/MenuHook'
 import CloseIcon from '@mui/icons-material/Close';
+import { Navigate } from "react-router-dom"
 
 export const CartItem = ({parameters}) => {
   const {setCartItems} = useContext(MenuContext)
@@ -12,9 +13,19 @@ export const CartItem = ({parameters}) => {
       return {...prevCartItems}
     })
   }
+  const [redirect, setRedirect] = useState(false)
   return (
+    redirect ? 
+    <Navigate to={"/item"} state={{
+      name:parameters.name,
+      year:parameters.year,
+      website:parameters.website,
+      model:parameters.model,
+      download:parameters.download
+    }}/>
+    :
     <Container>
-      <button className='edit'>Edit</button>
+      <button className='edit' onClick={() => setRedirect(!redirect)}>Edit</button>
       <div className='data-part'>
         <p>{parameters.name}</p>
         <p>{parameters.year}</p>

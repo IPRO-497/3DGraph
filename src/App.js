@@ -14,6 +14,7 @@ import { GitLab } from './pages/GitLab';
 import { Navbar } from './components/Navbar';
 import { Success } from './pages/Success';
 import cryptoJs from 'crypto-js';
+import { LevaGUI } from './components/LevaGUI';
 
 function App() {
   const [itemList, setItemList] = useState([])
@@ -65,6 +66,7 @@ function App() {
       }}>
         <Router>
           <Navbar />
+          <LevaGUI />
           <Routes>
               <Route exact path="/" element={<Home />} />
               <Route exact path='/style/button' element={ <ButtonStyle />} />

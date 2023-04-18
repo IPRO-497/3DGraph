@@ -6,14 +6,14 @@ import { useThree } from '@react-three/fiber'
 import { Text3D } from "@react-three/drei"
 import { GitHubModel } from "./icons/Github"
 import { LeetCodeModel } from "./icons/LeetCode"
-import { STLExporter } from "three/examples/jsm/exporters/STLExporter"
+// import { STLExporter } from "three/examples/jsm/exporters/STLExporter"
 import { HandContext } from '../hooks/HandContext'
 import { MenuContext } from '../hooks/MenuHook'
 import { Environment } from "@react-three/drei"
 import { GitLabModel } from "./icons/Gitlab"
-import { useControls, LevaInputs } from "leva"
+import { useControls, LevaInputs, button } from "leva"
 
-export const YearWeekDayGroup = ({convertedData, username, year, website, setTensor, tensor}) => {
+export const YearWeekDayGroup = ({convertedData, username, year, website, setTensor, tensor, setRedirect}) => {
   // Camera Logic
   const {positionConstant, rotationConstant} = useContext(HandContext)
   const { show, setShow, setItemList } = useContext(MenuContext)
@@ -24,8 +24,18 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
     year: {
       value: year,
       type: LevaInputs["STRING"]
-    }
-  }))
+    },
+    "Reset Values": button(() => set({username: username, year: year}))
+  }),{
+    order: 1
+  })
+
+  useControls("menu", {
+   "Toggle Menu": button(() => setShow(currShow => !currShow))
+  },{
+    collapsed : true,
+    order: 4
+  })
 
   const toggleControls = () => {
     positionConstant.current = [
@@ -46,18 +56,19 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
 
   // Download Logic
   const { scene, camera } = useThree()
-  const link = document.createElement('a')
-  const save = (blob, filename) => {
-    link.href = URL.createObjectURL(blob)
-    link.download = filename
-    link.click()
-  }
-  const saveArrayBuffer = (buffer, fileName) => {
-    save(new Blob([buffer], { type: "text.plain" }), fileName)
-  }
+  // const link = document.createElement('a')
+  // const save = (blob, filename) => {
+  //   link.href = URL.createObjectURL(blob)
+  //   link.download = filename
+  //   link.click()
+  // }
+  // const saveArrayBuffer = (buffer, fileName) => {
+  //   save(new Blob([buffer], { type: "text.plain" }), fileName)
+  // }
   const download = () => {
-    const exporter = new STLExporter().parse(scene)
-    saveArrayBuffer(exporter, `${website[0].toUpperCase() + website.slice(1)}Contribution.stl`)
+    // const exporter = new STLExporter().parse(scene)
+    // saveArrayBuffer(exporter, `${website[0].toUpperCase() + website.slice(1)}Contribution.stl`)
+    setRedirect(true)
   }
 
   setItemList([
@@ -85,12 +96,6 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
   useEffect(() => {
     set({username: username, year: year})
   }, [set, username, year])
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     download()
-  //   }, 1000);
-  // }, [download])
 
   return (
     <>

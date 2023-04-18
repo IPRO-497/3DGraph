@@ -1,10 +1,18 @@
 import { Edges } from "@react-three/drei"
-import { useControls } from "leva"
+import { button, useControls } from "leva"
 
 export const ContributionGraph = ({ data }) => {
-  const controls = useControls("bar", {
+  const [controls, set] = useControls("bar", () => ({
     BarColor: "black",
-    EdgeColor: "#525466"
+    EdgeColor: "#525466",
+    "Reset Values": button(
+      () => {
+       set({BarColor: "black", EdgeColor: "#525466"})
+      }
+    )
+  }),{
+    collapsed : true,
+    order: 2
   })
   return (
     data.map(

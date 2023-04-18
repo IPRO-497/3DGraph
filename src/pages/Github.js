@@ -2,7 +2,7 @@ import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { YearWeekDayGroup } from '../components/YearWeekDayGroup'
 import { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import { MotionCamera } from '../components/MotionCamera'
 import { TensorFlow } from '../components/TensorFlow'
 import { MenuContext } from '../hooks/MenuHook'
@@ -17,6 +17,7 @@ export const Github = ({name, year}) => {
   // Tensor Logic - Change to Context
   const [tensor, setTensor] = useState(false)
   const {show} = useContext(MenuContext)
+  const [redirect, setRedirect] = useState(false)
   
   useEffect(() => {
     const converter = require("../converter/Github")
@@ -36,10 +37,25 @@ export const Github = ({name, year}) => {
       show &&
       <ButtonStyle />
     }
+    {
+      redirect && <Navigate to={"/item"} state={{
+        name:name,
+        year:year,
+        website:"GitHub",
+        download:true
+      }}/>
+    }
     <Canvas className='canvas'>
       {tensor ? <MotionCamera />: <OrbitControls />}
       <OrbitControls />
-      {convertedData && <YearWeekDayGroup convertedData={convertedData} username={name} year={year} website="github" setTensor={setTensor} tensor={tensor} />}
+      {convertedData && <YearWeekDayGroup
+        convertedData={convertedData}
+        username={name} year={year}
+        website="github"
+        setTensor={setTensor}
+        tensor={tensor}
+        setRedirect={setRedirect}
+      />}
     </Canvas>
     </>
   )
