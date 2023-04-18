@@ -14,6 +14,7 @@ import { GitLab } from './pages/GitLab';
 import { Navbar } from './components/Navbar';
 import { Success } from './pages/Success';
 import cryptoJs from 'crypto-js';
+import { LevaGUI } from './components/LevaGUI';
 
 function App() {
   const [itemList, setItemList] = useState([])
