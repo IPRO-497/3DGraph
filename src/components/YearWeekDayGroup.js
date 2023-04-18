@@ -29,6 +29,13 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
     order: 1
   })
 
+  useControls("menu", {
+   "Toggle Menu": button(() => setShow(currShow => !currShow))
+  },{
+    collapsed : true,
+    order: 4
+  })
+
   const toggleControls = () => {
     positionConstant.current = [
       camera.position.x,
