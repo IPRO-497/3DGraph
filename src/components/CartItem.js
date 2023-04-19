@@ -21,7 +21,8 @@ export const CartItem = ({parameters}) => {
       year:parameters.year,
       website:parameters.website,
       model:parameters.model,
-      download:parameters.download
+      download:parameters.download,
+      delete:parameters.name + parameters.year + parameters.website + parameters.model+(parameters.ship? "ship" : "download")
     }}/>
     :
     <Container>
