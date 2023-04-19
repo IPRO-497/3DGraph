@@ -3,12 +3,14 @@ import styled from "styled-components"
 import { CartItem } from '../components/CartItem'
 import { MenuContext } from '../hooks/MenuHook'
 import { v4 as uuidv4 } from 'uuid';
+import { useLocation } from 'react-router-dom';
 
 export const Cart = ({setUuid}) => {
   // const [cartItems, setCartItems] = useState(
   //   JSON.parse(localStorage["cartItems"]) ||
   //   {}
   // )
+  const locate = useLocation()
   const {setCartItems, cartItems} = useContext(MenuContext)
 
   const checkout = (e) => {
