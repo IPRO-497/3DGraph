@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react"
 import { useState, useRef } from "react"
-import { useNavigate, useLocation } from "react-router-dom"
+import { useNavigate, useLocation, Navigate } from "react-router-dom"
 import styled from "styled-components"
 import { MenuContext } from "../hooks/MenuHook"
 
