@@ -91,6 +91,7 @@ export const Form = ({setPreview, setData}) => {
     })
     if(parameters.name && parameters.website !== "default" && parameters.download.checked){
       addToCart(parameters)
+      setRedirect(true)
     }
   }
 
