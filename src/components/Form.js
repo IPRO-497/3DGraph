@@ -15,6 +15,7 @@ export const Form = ({setPreview, setData}) => {
   const location = locate.pathname
   const [type, setType] = useState()
   const {addToCart} = useContext(MenuContext)
+  const [redirect, setRedirect] = useState(false)
   const errorMessage = {
     "empty-text": "Please fill out this field with characters",
     "empty-number": "Please enter the quantity",
