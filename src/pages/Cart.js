@@ -12,6 +12,12 @@ export const Cart = ({setUuid}) => {
   // )
   const locate = useLocation()
   const {setCartItems, cartItems} = useContext(MenuContext)
+  if(locate.state?.delete?.length){
+    setCartItems((prevCartItems) => {
+      delete prevCartItems[locate.state.delete]
+      return {...prevCartItems}
+    })
+  }
 
   const checkout = (e) => {
     const uuid = uuidv4()
