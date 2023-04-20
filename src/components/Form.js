@@ -158,7 +158,7 @@ export const Form = ({setPreview, setData}) => {
   if(redirect){
     return(
       <Navigate to={"/cart"} state={{
-        delete: locate.state.delete || ""
+        delete: locate.state?.delete || ""
       }}/>
     )
   }
