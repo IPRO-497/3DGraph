@@ -25,7 +25,8 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
       value: year,
       type: LevaInputs["STRING"]
     },
-    "Reset Values": button(() => set({username: username, year: year}))
+    textColor: "BLACK",
+    "Reset Values": button(() => set({username: username, year: year, TextColor: "BLACK"}))
   }),{
     order: 1
   })
@@ -131,7 +132,7 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
           ref={name}
         >
           {controls.username}
-          <meshBasicMaterial color="BLACK" />
+          <meshBasicMaterial color={controls.textColor} />
         </Text3D>
 
         <Text3D
@@ -141,7 +142,7 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
           position={[53 * (0.3 / 8) + 0.3, -1.4 * 0.27, 4 * 0.258]}
         >
           {controls.year}
-          <meshBasicMaterial color="BLACK" />
+          <meshBasicMaterial color={controls.textColor} />
         </Text3D>
         
         {
@@ -160,6 +161,7 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
         rotation={[-Math.PI*(0.5 - 0.35241638235), 0, 0]}
         scale={4.5}
         position={[-53 * (0.3 / 4) + 1, -.45, 4.24 * 0.26]}
+        color={controls.textColor}
       />
         : null
         }

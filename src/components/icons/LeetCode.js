@@ -12,7 +12,7 @@ export const LeetCodeModel = (props) => {
 
   return (
     <mesh ref={modelMesh} {...props}>
-      <meshBasicMaterial color="black" />
+      <meshBasicMaterial color={props.color} />
     </mesh>
   )
 }
