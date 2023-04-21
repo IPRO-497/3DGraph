@@ -57,20 +57,8 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
   const model = useRef()
   const name = useRef()
 
-  // Download Logic
   const { scene, camera } = useThree()
-  // const link = document.createElement('a')
-  // const save = (blob, filename) => {
-  //   link.href = URL.createObjectURL(blob)
-  //   link.download = filename
-  //   link.click()
-  // }
-  // const saveArrayBuffer = (buffer, fileName) => {
-  //   save(new Blob([buffer], { type: "text.plain" }), fileName)
-  // }
   const download = () => {
-    // const exporter = new STLExporter().parse(scene)
-    // saveArrayBuffer(exporter, `${website[0].toUpperCase() + website.slice(1)}Contribution.stl`)
     setRedirect(true)
   }
 
