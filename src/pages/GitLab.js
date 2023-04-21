@@ -9,7 +9,7 @@ import { MenuContext } from '../hooks/MenuHook'
 import { ButtonStyle } from './ButtonStyle'
 import { Navigate, useParams } from 'react-router-dom'
 
-export const GitLab = ({name, year}) => {
+export const GitLab = ({name, year, success, setTaskComplete}) => {
   // Names: feistel, dnsmichi
   const [convertedData, setConvertedData] = useState()
   const params = useParams()
