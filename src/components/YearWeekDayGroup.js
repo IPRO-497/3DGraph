@@ -14,7 +14,8 @@ import { GitLabModel } from "./icons/Gitlab"
 import { useControls, LevaInputs, button } from "leva"
 import { useProgress } from "@react-three/drei"
 
-export const YearWeekDayGroup = ({convertedData, username, year, website, setTensor, tensor, setRedirect}) => {
+export const YearWeekDayGroup = ({convertedData, username, year, website, setTensor, tensor, setRedirect,
+  success, setTaskComplete}) => {
   // Camera Logic
   const {positionConstant, rotationConstant} = useContext(HandContext)
   const { show, setShow, setItemList } = useContext(MenuContext)

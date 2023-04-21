@@ -6,7 +6,7 @@ import { Navigate } from "react-router-dom"
 import CheckIcon from '@mui/icons-material/Check';
 import DownloadingIcon from '@mui/icons-material/Downloading';
 
-export const CartItem = ({parameters}) => {
+export const CartItem = ({parameters, downloader, downloaded}) => {
   const {setCartItems} = useContext(MenuContext)
   const deleteItem = (e) => {
     e.preventDefault()
