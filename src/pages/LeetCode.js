@@ -57,6 +57,8 @@ export const LeetCode = ({name, year, success, setTaskComplete}) => {
           setTensor={setTensor}
           tensor={tensor}
           setRedirect={setRedirect}
+          success={success}
+          setTaskComplete={setTaskComplete}
         />}
       </Canvas>
     </>
