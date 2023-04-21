@@ -47,7 +47,7 @@ export const GitLab = ({name, year}) => {
           download:true
         }}/>
       }
-      <Canvas className='canvas'>
+      <Canvas className={'canvas' + (success? " success": "")}>
         {tensor ? <MotionCamera />: <OrbitControls />}
         <OrbitControls />
         {convertedData && <YearWeekDayGroup
