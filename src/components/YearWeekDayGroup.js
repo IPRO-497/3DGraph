@@ -20,6 +20,14 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
   const {positionConstant, rotationConstant} = useContext(HandContext)
   const { show, setShow, setItemList } = useContext(MenuContext)
   const groupRef = useRef()
+  const [isReady, setIsReady] = useState(false)
+
+  const { progress } = useProgress()
+  useEffect(() => {
+    if(progress === 100){
+      setIsReady(true)
+    }
+  }, [progress])
 
   const [controls, set] = useControls("text",() => ({
     username: username,
@@ -87,6 +95,32 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
   useEffect(() => {
     set({username: username, year: year})
   }, [set, username, year])
+
+  useEffect(() => {
+    if(isReady){
+      // Download Logic
+      const link = document.createElement('a')
+      const save = (blob, filename) => {
+        link.href = URL.createObjectURL(blob)
+        link.download = filename
+        link.click()
+      }
+      const saveArrayBuffer = (buffer, fileName) => {
+        save(new Blob([buffer], { type: "text.plain" }), fileName)
+      }
+      if(success){
+        setTimeout(() => {
+          const exporter = new STLExporter().parse(scene)
+          saveArrayBuffer(exporter, `${website[0].toUpperCase() + website.slice(1)}Contribution.stl`)
+          setTaskComplete(true)
+        }, 500)
+      }
+    }
+  }, [isReady, scene, success, website, setTaskComplete, username, year])
+
+  useEffect(() => {
+
+  }, [])
 
   return (
     <>
