@@ -100,3 +100,44 @@ export const Success = () => {
     </Container>
   )
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 3em;
+  height: 100%;
+  width: 100%;
+  .cart{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 50em;
+    padding: 3em 3em 3em 3em;
+    background-color: #fafafa;
+    border-radius: 0.2em;
+    h1{
+      width: 100%;
+      text-align: center;
+      margin-bottom: 0.2em;
+    }
+    > p{
+      width: 100%;
+      text-align: center;
+      margin-bottom: 3em;
+    }
+    .cart-items{
+      padding-top: 1.6em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+    >div{
+      margin: 0;
+      padding: 0;
+      height: 0;
+      width: 0;
+    }
+  }
+`
