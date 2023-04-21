@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { MenuContext } from '../hooks/MenuHook'
 import CloseIcon from '@mui/icons-material/Close';
 import { Navigate } from "react-router-dom"
+import CheckIcon from '@mui/icons-material/Check';
+import DownloadingIcon from '@mui/icons-material/Downloading';
 
 export const CartItem = ({parameters}) => {
   const {setCartItems} = useContext(MenuContext)

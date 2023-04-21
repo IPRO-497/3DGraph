@@ -1,17 +1,18 @@
 import { ContributionGraph } from "./ContributionGraph"
 import { Trapezoid } from "./Trapezoid"
-import { useContext, useEffect, useRef } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import * as THREE from "three"
 import { useThree } from '@react-three/fiber'
 import { Text3D } from "@react-three/drei"
 import { GitHubModel } from "./icons/Github"
 import { LeetCodeModel } from "./icons/LeetCode"
-// import { STLExporter } from "three/examples/jsm/exporters/STLExporter"
+import { STLExporter } from "three/examples/jsm/exporters/STLExporter"
 import { HandContext } from '../hooks/HandContext'
 import { MenuContext } from '../hooks/MenuHook'
 import { Environment } from "@react-three/drei"
 import { GitLabModel } from "./icons/Gitlab"
 import { useControls, LevaInputs, button } from "leva"
+import { useProgress } from "@react-three/drei"
 
 export const YearWeekDayGroup = ({convertedData, username, year, website, setTensor, tensor, setRedirect}) => {
   // Camera Logic
