@@ -48,6 +48,55 @@ export const Success = () => {
   // Keep coming soon for the ship button and quantity
   // Add fill form functionality
   return (
-    <div>Success</div>
+    <Container>
+      <div className='cart'>
+        <h1>Success!</h1>
+        <p>Thank you for purchasing.</p>
+        <ul className='cart-items'>
+          {Object.keys(listItems).map((item, key) =>
+            <CartItem
+              parameters={{
+                name:listItems[item].name,
+                year:listItems[item].year,
+                website:listItems[item].website,
+                model:listItems[item].model,
+                ship:listItems[item].ship,
+                download:listItems[item].download,
+              }}
+              downloader={true}
+              downloaded={listItems[item].downloaded}
+              key={key}
+            />
+          )}
+        </ul>
+      </div>
+      { cryptoJs.SHA256(params.id).toString() === localStorage["uuid"] &&
+        (
+          cartItems[[Object.keys(cartItems)[0]]]?.website.toLowerCase() === "github" ?
+            <Github
+              name={cartItems[Object.keys(cartItems)[0]].name}
+              year={cartItems[Object.keys(cartItems)[0]].year}
+              taskComplete={taskComplete}
+              setTaskComplete={setTaskComplete}
+              success={true}
+            /> :
+          cartItems[Object.keys(cartItems)[0]]?.website.toLowerCase() === "leetcode" ?
+            <LeetCode
+              name={cartItems[Object.keys(cartItems)[0]].name}
+              year={cartItems[Object.keys(cartItems)[0]].year}
+              taskComplete={taskComplete}
+              setTaskComplete={setTaskComplete}
+              success={true}
+            /> :
+          cartItems[Object.keys(cartItems)[0]]?.website.toLowerCase() === "gitlab" ?
+            <GitLab
+              name={cartItems[Object.keys(cartItems)[0]].name}
+              success={true}
+              taskComplete={taskComplete}
+              setTaskComplete={setTaskComplete}
+            /> : null
+          )
+        }
+    </Container>
   )
 }
