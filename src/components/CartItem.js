@@ -28,7 +28,7 @@ export const CartItem = ({parameters, downloader, downloaded}) => {
     }}/>
     :
     <Container>
-      <button className='edit' onClick={() => setRedirect(!redirect)}>Edit</button>
+      {!downloader && <button className='edit' onClick={() => setRedirect(!redirect)}>Edit</button>}
       <div className='data-part'>
         <p>{parameters.name}</p>
         <p>{parameters.year}</p>
@@ -37,9 +37,10 @@ export const CartItem = ({parameters, downloader, downloaded}) => {
         <p>{parameters.ship ? "ship" : "download"}</p>
         <p>{parameters.ship ? parameters.quantity : 1}</p>
       </div>
-      <button onClick={deleteItem}>
+      {!downloader && <button onClick={deleteItem}>
         <CloseIcon />
-      </button>
+      </button>}
+      {downloader && (downloaded ? <CheckIcon /> : <DownloadingIcon />)}
     </Container>
   )
 }
