@@ -181,6 +181,7 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
           rotation={[-Math.PI*(0.5 - 0.35241638235), 0, 0]}
           scale={4.5}
           position={[-53 * (0.3 / 4) + 1, -.45, 4 * 0.26]}
+          color={controls.textColor}
         /> : website === "gitlab"? <GitLabModel
         rotation={[-Math.PI*(0.5 - 0.35241638235), 0, 0]}
         scale={4.5}
