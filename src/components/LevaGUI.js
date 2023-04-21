@@ -3,7 +3,7 @@ import { Leva } from 'leva'
 
 export const LevaGUI = () => {
   return (
-    <LevaContainer>
+    <LevaContainer className='leva'>
       <Leva />
     </LevaContainer>
   )
