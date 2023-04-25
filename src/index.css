@@ -50,7 +50,3 @@ input[type="radio"], input[type="checkbox"], button{
   position: absolute;
   top: 99999999999999999px;
 }
-
-.leva > div{
-  top: 9999999999999999999px!important;
-}
