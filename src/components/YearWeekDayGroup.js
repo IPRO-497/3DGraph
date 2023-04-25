@@ -118,10 +118,6 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
     }
   }, [isReady, scene, success, website, setTaskComplete, username, year])
 
-  useEffect(() => {
-
-  }, [])
-
   return (
     <>
     <Environment

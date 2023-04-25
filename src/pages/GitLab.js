@@ -2,12 +2,14 @@
 import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { YearWeekDayGroup } from '../components/YearWeekDayGroup'
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState, Suspense } from "react"
 import { MotionCamera } from '../components/MotionCamera'
 import { TensorFlow } from '../components/TensorFlow'
 import { MenuContext } from '../hooks/MenuHook'
 import { ButtonStyle } from './ButtonStyle'
 import { Navigate, useParams } from 'react-router-dom'
+import { useProgress } from '@react-three/drei'
+import { Loading } from '../components/Loading'
 
 export const GitLab = ({name, year, success, setTaskComplete}) => {
   // Names: feistel, dnsmichi
@@ -20,6 +22,7 @@ export const GitLab = ({name, year, success, setTaskComplete}) => {
   const [tensor, setTensor] = useState(false)
   const {show} = useContext(MenuContext)
   const [redirect, setRedirect] = useState(false)
+  const { progress } = useProgress()
 
   useEffect(() => {
     const converter = require("../converter/GitLab")
@@ -47,21 +50,23 @@ export const GitLab = ({name, year, success, setTaskComplete}) => {
           download:true
         }}/>
       }
-      <Canvas className={'canvas' + (success? " success": "")}>
-        {tensor ? <MotionCamera />: <OrbitControls />}
-        <OrbitControls />
-        {convertedData && <YearWeekDayGroup
-          convertedData={convertedData}
-          username={name}
-          year={year}
-          website="gitlab"
-          setTensor={setTensor}
-          tensor={tensor}
-          setRedirect={setRedirect}
-          success={success}
-          setTaskComplete={setTaskComplete}
-        />}
-      </Canvas>
+      <Suspense fallback={<Loading progress={progress} />}>
+        <Canvas className={'canvas' + (success? " success": "")}>
+          {tensor ? <MotionCamera />: <OrbitControls />}
+          <OrbitControls />
+          {convertedData && <YearWeekDayGroup
+            convertedData={convertedData}
+            username={name}
+            year={year}
+            website="gitlab"
+            setTensor={setTensor}
+            tensor={tensor}
+            setRedirect={setRedirect}
+            success={success}
+            setTaskComplete={setTaskComplete}
+          />}
+        </Canvas>
+      </Suspense>
     </>
   )
 }
