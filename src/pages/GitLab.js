@@ -16,7 +16,7 @@ export const GitLab = ({name, year, success, setTaskComplete}) => {
   const [convertedData, setConvertedData] = useState()
   const params = useParams()
   if(typeof name !== "string")name = params.name
-  if(typeof year !== "string")year = (new Date().getMonth()).toString() + "/" +
+  if(typeof year !== "string")year = (new Date().getMonth() + 1).toString() + "/" +
   (new Date().getFullYear()).toString().slice(2,4)
   // Tensor Logic - Change to Context
   const [tensor, setTensor] = useState(false)
