@@ -24,13 +24,7 @@ export const Github = ({name, year, success, setTaskComplete}) => {
   const [tensor, setTensor] = useState(false)
   const {show} = useContext(MenuContext)
   const [redirect, setRedirect] = useState(false)
-
   const {progress} = useProgress()
-
-  useEffect(() => {
-    console.log(progress)
-  }, [progress])
-  
   
   useEffect(() => {
     const converter = require("../converter/Github")
@@ -59,7 +53,6 @@ export const Github = ({name, year, success, setTaskComplete}) => {
       }}/>
     }
     <Suspense fallback={<Loading progress={progress} />}>
-      {!isLoading &&
       <Canvas className={'canvas' + (success? " success": "")}>
         {tensor ? <MotionCamera />: <OrbitControls />}
         <OrbitControls />
@@ -74,7 +67,6 @@ export const Github = ({name, year, success, setTaskComplete}) => {
           setTaskComplete={setTaskComplete}
         />}
       </Canvas>
-      }
     </Suspense>
     </>
   )
