@@ -6,16 +6,14 @@ import { useThree } from '@react-three/fiber'
 import { Text3D } from "@react-three/drei"
 import { GitHubModel } from "./icons/Github"
 import { LeetCodeModel } from "./icons/LeetCode"
-import { STLExporter } from "three/examples/jsm/exporters/STLExporter"
+// import { STLExporter } from "three/examples/jsm/exporters/STLExporter"
 import { HandContext } from '../hooks/HandContext'
 import { MenuContext } from '../hooks/MenuHook'
 import { Environment } from "@react-three/drei"
 import { GitLabModel } from "./icons/Gitlab"
 import { useControls, LevaInputs, button } from "leva"
-import { useProgress } from "@react-three/drei"
 
-export const YearWeekDayGroup = ({convertedData, username, year, website, setTensor, tensor, setRedirect,
-  success, setTaskComplete}) => {
+export const YearWeekDayGroup = ({convertedData, username, year, website, setTensor, tensor, setRedirect}) => {
   // Camera Logic
   const {positionConstant, rotationConstant} = useContext(HandContext)
   const { show, setShow, setItemList } = useContext(MenuContext)
@@ -35,8 +33,7 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
       value: year,
       type: LevaInputs["STRING"]
     },
-    textColor: "BLACK",
-    "Reset Values": button(() => set({username: username, year: year, TextColor: "BLACK"}))
+    "Reset Values": button(() => set({username: username, year: year}))
   }),{
     order: 1
   })
@@ -66,7 +63,18 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
   const name = useRef()
 
   const { scene, camera } = useThree()
+  // const link = document.createElement('a')
+  // const save = (blob, filename) => {
+  //   link.href = URL.createObjectURL(blob)
+  //   link.download = filename
+  //   link.click()
+  // }
+  // const saveArrayBuffer = (buffer, fileName) => {
+  //   save(new Blob([buffer], { type: "text.plain" }), fileName)
+  // }
   const download = () => {
+    // const exporter = new STLExporter().parse(scene)
+    // saveArrayBuffer(exporter, `${website[0].toUpperCase() + website.slice(1)}Contribution.stl`)
     setRedirect(true)
   }
 
@@ -95,28 +103,6 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
   useEffect(() => {
     set({username: username, year: year})
   }, [set, username, year])
-
-  useEffect(() => {
-    if(isReady){
-      // Download Logic
-      const link = document.createElement('a')
-      const save = (blob, filename) => {
-        link.href = URL.createObjectURL(blob)
-        link.download = filename
-        link.click()
-      }
-      const saveArrayBuffer = (buffer, fileName) => {
-        save(new Blob([buffer], { type: "text.plain" }), fileName)
-      }
-      if(success){
-        setTimeout(() => {
-          const exporter = new STLExporter().parse(scene)
-          saveArrayBuffer(exporter, `${website[0].toUpperCase() + website.slice(1)}Contribution.stl`)
-          setTaskComplete(true)
-        }, 500)
-      }
-    }
-  }, [isReady, scene, success, website, setTaskComplete, username, year])
 
   return (
     <>
