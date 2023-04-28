@@ -1,7 +1,9 @@
+import { useLocation } from "react-router-dom"
 import styled from "styled-components"
 
 export const Loading = ({progress}) => {
-  console.log(progress)
+  const location = useLocation()
+  if(location.pathname.split("/")[1] === "success")return null
   return (
     <Container>
       <h3>Loading...</h3>
