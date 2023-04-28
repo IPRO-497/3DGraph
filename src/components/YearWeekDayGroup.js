@@ -41,6 +41,12 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
     order: 1
   })
 
+  const dropdownControls = useControls("background", {
+    dropdown: {
+      options: [7,0,1,2,3,4,5,6,]
+    }
+  })
+
   useControls("menu", {
    "Toggle Menu": button(() => setShow(currShow => !currShow))
   },{
@@ -123,12 +129,12 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
     <Environment
       background
       files={[
-        '/environmentMap/7/px.png',
-        '/environmentMap/7/nx.png',
-        '/environmentMap/7/py.png',
-        '/environmentMap/7/ny.png',
-        '/environmentMap/7/pz.png',
-        '/environmentMap/7/nz.png'
+        `/environmentMap/${dropdownControls.dropdown}/px.png`,
+        `/environmentMap/${dropdownControls.dropdown}/nx.png`,
+        `/environmentMap/${dropdownControls.dropdown}/py.png`,
+        `/environmentMap/${dropdownControls.dropdown}/ny.png`,
+        `/environmentMap/${dropdownControls.dropdown}/pz.png`,
+        `/environmentMap/${dropdownControls.dropdown}/nz.png`
       ]}
     />
     <group
