@@ -12,10 +12,6 @@ import { Loading } from '../components/Loading'
 
 export const Github = ({name, year, success, setTaskComplete}) => {
   const [convertedData, setConvertedData] = useState()
-  const [ isLoading, setIsLoading ] = useState(true)
-  useEffect(() => {
-    setTimeout(() => setIsLoading(false), 3000)
-  }, [])
   const params = useParams()
   if(typeof name !== "string")name = params.name
   if(typeof year !== "string")year = params.year
