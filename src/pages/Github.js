@@ -12,10 +12,6 @@ import { Loading } from '../components/Loading'
 
 export const Github = ({name, year, success, setTaskComplete}) => {
   const [convertedData, setConvertedData] = useState()
-  const [ isLoading, setIsLoading ] = useState(true)
-  useEffect(() => {
-    setTimeout(() => setIsLoading(false), 3000)
-  }, [])
   const params = useParams()
   if(typeof name !== "string")name = params.name
   if(typeof year !== "string")year = params.year
@@ -24,13 +20,7 @@ export const Github = ({name, year, success, setTaskComplete}) => {
   const [tensor, setTensor] = useState(false)
   const {show} = useContext(MenuContext)
   const [redirect, setRedirect] = useState(false)
-
   const {progress} = useProgress()
-
-  useEffect(() => {
-    console.log(progress)
-  }, [progress])
-  
   
   useEffect(() => {
     const converter = require("../converter/Github")
@@ -59,7 +49,6 @@ export const Github = ({name, year, success, setTaskComplete}) => {
       }}/>
     }
     <Suspense fallback={<Loading progress={progress} />}>
-      {!isLoading &&
       <Canvas className={'canvas' + (success? " success": "")}>
         {tensor ? <MotionCamera />: <OrbitControls />}
         <OrbitControls />
@@ -74,7 +63,6 @@ export const Github = ({name, year, success, setTaskComplete}) => {
           setTaskComplete={setTaskComplete}
         />}
       </Canvas>
-      }
     </Suspense>
     </>
   )
