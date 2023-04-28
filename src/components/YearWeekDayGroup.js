@@ -1,6 +1,6 @@
 import { ContributionGraph } from "./ContributionGraph"
 import { Trapezoid } from "./Trapezoid"
-import { useContext, useEffect, useRef, useState } from "react"
+import { useContext, useEffect, useRef} from "react"
 import * as THREE from "three"
 import { useThree } from '@react-three/fiber'
 import { Text3D } from "@react-three/drei"
@@ -18,14 +18,6 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
   const {positionConstant, rotationConstant} = useContext(HandContext)
   const { show, setShow, setItemList } = useContext(MenuContext)
   const groupRef = useRef()
-  const [isReady, setIsReady] = useState(false)
-
-  const { progress } = useProgress()
-  useEffect(() => {
-    if(progress === 100){
-      setIsReady(true)
-    }
-  }, [progress])
 
   const [controls, set] = useControls("text",() => ({
     username: username,
@@ -33,6 +25,7 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
       value: year,
       type: LevaInputs["STRING"]
     },
+    textColor: "#000000",
     "Reset Values": button(() => set({username: username, year: year}))
   }),{
     order: 1

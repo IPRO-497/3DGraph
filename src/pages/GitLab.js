@@ -2,7 +2,7 @@
 import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { YearWeekDayGroup } from '../components/YearWeekDayGroup'
-import { useContext, useEffect, useState, Suspense } from "react"
+import { useContext, useEffect, useState} from "react"
 import { MotionCamera } from '../components/MotionCamera'
 import { TensorFlow } from '../components/TensorFlow'
 import { MenuContext } from '../hooks/MenuHook'
