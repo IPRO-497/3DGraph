@@ -7,8 +7,10 @@ import { MotionCamera } from '../components/MotionCamera'
 import { TensorFlow } from '../components/TensorFlow'
 import { MenuContext } from '../hooks/MenuHook'
 import { ButtonStyle } from './ButtonStyle'
+import { useProgress } from '@react-three/drei'
+import { Loading } from '../components/Loading'
 
-export const Github = ({name, year}) => {
+export const Github = ({name, year, success, setTaskComplete}) => {
   const [convertedData, setConvertedData] = useState()
   const params = useParams()
   if(typeof name !== "string")name = params.name

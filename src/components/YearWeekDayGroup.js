@@ -1,6 +1,6 @@
 import { ContributionGraph } from "./ContributionGraph"
 import { Trapezoid } from "./Trapezoid"
-import { useContext, useEffect, useRef } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import * as THREE from "three"
 import { useThree } from '@react-three/fiber'
 import { Text3D } from "@react-three/drei"
@@ -18,6 +18,14 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
   const {positionConstant, rotationConstant} = useContext(HandContext)
   const { show, setShow, setItemList } = useContext(MenuContext)
   const groupRef = useRef()
+  const [isReady, setIsReady] = useState(false)
+
+  const { progress } = useProgress()
+  useEffect(() => {
+    if(progress === 100){
+      setIsReady(true)
+    }
+  }, [progress])
 
   const [controls, set] = useControls("text",() => ({
     username: username,
@@ -54,7 +62,6 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
   const model = useRef()
   const name = useRef()
 
-  // Download Logic
   const { scene, camera } = useThree()
   // const link = document.createElement('a')
   // const save = (blob, filename) => {
@@ -131,7 +138,7 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
           ref={name}
         >
           {controls.username}
-          <meshBasicMaterial color="BLACK" />
+          <meshBasicMaterial color={controls.textColor} />
         </Text3D>
 
         <Text3D
@@ -141,7 +148,7 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
           position={[53 * (0.3 / 8) + 0.3, -1.4 * 0.27, 4 * 0.258]}
         >
           {controls.year}
-          <meshBasicMaterial color="BLACK" />
+          <meshBasicMaterial color={controls.textColor} />
         </Text3D>
         
         {
@@ -156,10 +163,12 @@ export const YearWeekDayGroup = ({convertedData, username, year, website, setTen
           rotation={[-Math.PI*(0.5 - 0.35241638235), 0, 0]}
           scale={4.5}
           position={[-53 * (0.3 / 4) + 1, -.45, 4 * 0.26]}
+          color={controls.textColor}
         /> : website === "gitlab"? <GitLabModel
         rotation={[-Math.PI*(0.5 - 0.35241638235), 0, 0]}
         scale={4.5}
         position={[-53 * (0.3 / 4) + 1, -.45, 4.24 * 0.26]}
+        color={controls.textColor}
       />
         : null
         }

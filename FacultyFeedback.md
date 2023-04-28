@@ -62,3 +62,6 @@
 - Dry run and final demo template - https://github.com/mschray/IPro497Sample/blob/main/Course%20Content/Final%20Presentation%20Template.pptx
 
 ## Week 15 ##
+- Do you know how many users each of these platforms has?  It would impressive to mention how many users these sites have
+- Perhaps not abbreviating MB, but using MB's first name?
+- You don't really want a shared cart, so you'll need to add a login at some point

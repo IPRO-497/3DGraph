@@ -2,19 +2,19 @@
 import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { YearWeekDayGroup } from '../components/YearWeekDayGroup'
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState, Suspense } from "react"
 import { MotionCamera } from '../components/MotionCamera'
 import { TensorFlow } from '../components/TensorFlow'
 import { MenuContext } from '../hooks/MenuHook'
 import { ButtonStyle } from './ButtonStyle'
 import { Navigate, useParams } from 'react-router-dom'
 
-export const GitLab = ({name, year}) => {
+export const GitLab = ({name, year, success, setTaskComplete}) => {
   // Names: feistel, dnsmichi
   const [convertedData, setConvertedData] = useState()
   const params = useParams()
   if(typeof name !== "string")name = params.name
-  if(typeof year !== "string")year = (new Date().getMonth()).toString() + "/" +
+  if(typeof year !== "string")year = (new Date().getMonth() + 1).toString() + "/" +
   (new Date().getFullYear()).toString().slice(2,4)
   // Tensor Logic - Change to Context
   const [tensor, setTensor] = useState(false)

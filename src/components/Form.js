@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react"
 import { useState, useRef } from "react"
-import { useNavigate, useLocation } from "react-router-dom"
+import { useNavigate, useLocation, Navigate } from "react-router-dom"
 import styled from "styled-components"
 import { MenuContext } from "../hooks/MenuHook"
 
@@ -15,6 +15,7 @@ export const Form = ({setPreview, setData}) => {
   const location = locate.pathname
   const [type, setType] = useState()
   const {addToCart} = useContext(MenuContext)
+  const [redirect, setRedirect] = useState(false)
   const errorMessage = {
     "empty-text": "Please fill out this field with characters",
     "empty-number": "Please enter the quantity",
@@ -90,6 +91,7 @@ export const Form = ({setPreview, setData}) => {
     })
     if(parameters.name && parameters.website !== "default" && parameters.download.checked){
       addToCart(parameters)
+      setRedirect(true)
     }
   }
 

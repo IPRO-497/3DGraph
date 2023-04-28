@@ -4,7 +4,7 @@ import { MenuContext } from '../hooks/MenuHook'
 import CloseIcon from '@mui/icons-material/Close';
 import { Navigate } from "react-router-dom"
 
-export const CartItem = ({parameters}) => {
+export const CartItem = ({parameters, downloader, downloaded}) => {
   const {setCartItems} = useContext(MenuContext)
   const deleteItem = (e) => {
     e.preventDefault()
@@ -34,9 +34,10 @@ export const CartItem = ({parameters}) => {
         <p>{parameters.ship ? "ship" : "download"}</p>
         <p>{parameters.ship ? parameters.quantity : 1}</p>
       </div>
-      <button onClick={deleteItem}>
+      {!downloader && <button onClick={deleteItem}>
         <CloseIcon />
-      </button>
+      </button>}
+      {downloader && (downloaded ? <CheckIcon /> : <DownloadingIcon />)}
     </Container>
   )
 }
