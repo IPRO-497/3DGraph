@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import { MenuContext } from '../hooks/MenuHook'
 import CloseIcon from '@mui/icons-material/Close';
 import { Navigate } from "react-router-dom"
-import CheckIcon from '@mui/icons-material/Check';
-import DownloadingIcon from '@mui/icons-material/Downloading';
 
 export const CartItem = ({parameters, downloader, downloaded}) => {
   const {setCartItems} = useContext(MenuContext)
@@ -23,12 +21,11 @@ export const CartItem = ({parameters, downloader, downloaded}) => {
       year:parameters.year,
       website:parameters.website,
       model:parameters.model,
-      download:parameters.download,
-      delete:parameters.name + parameters.year + parameters.website + parameters.model+(parameters.ship? "ship" : "download")
+      download:parameters.download
     }}/>
     :
     <Container>
-      {!downloader && <button className='edit' onClick={() => setRedirect(!redirect)}>Edit</button>}
+      <button className='edit' onClick={() => setRedirect(!redirect)}>Edit</button>
       <div className='data-part'>
         <p>{parameters.name}</p>
         <p>{parameters.year}</p>

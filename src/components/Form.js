@@ -155,14 +155,6 @@ export const Form = ({setPreview, setData}) => {
     }
   }, [locate, type])
 
-  if(redirect){
-    return(
-      <Navigate to={"/cart"} state={{
-        delete: locate.state?.delete || ""
-      }}/>
-    )
-  }
-
   return (
     <Container ref={form}>
       {type === "home" && <h1>Model Details</h1>}
