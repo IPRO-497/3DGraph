@@ -4,7 +4,7 @@ import { Github } from './pages/Github';
 import { Home } from './pages/Home';
 import { LeetCode } from './pages/LeetCode';
 import { HandContext } from './hooks/HandContext';
-import { useEffect, useRef, Suspense } from 'react';
+import { useEffect, useRef} from 'react';
 import { ButtonStyle } from './pages/ButtonStyle';
 import { MenuContext } from './hooks/MenuHook';
 import { useState } from 'react';
@@ -22,7 +22,6 @@ function App() {
   const [cartCount, setCartCount] = useState(0)
   const [cartItems, setCartItems] = useState(localStorage["cartItems"] ? JSON.parse(localStorage["cartItems"]) : {})
   const [uuid, setUuid] = useState()
-  const {progress} = useProgress()
   const addToCart = (parameters) => {
     // e?.preventDefault()
     const quantity = parameters.quantity

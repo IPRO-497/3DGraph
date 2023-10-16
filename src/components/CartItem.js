@@ -2,6 +2,9 @@ import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import { MenuContext } from '../hooks/MenuHook'
 import CloseIcon from '@mui/icons-material/Close';
+import CheckIcon from "@mui/icons-material/Check";
+import DownloadingIcon from "@mui/icons-material/Downloading";
+
 import { Navigate } from "react-router-dom"
 
 export const CartItem = ({parameters, downloader, downloaded}) => {

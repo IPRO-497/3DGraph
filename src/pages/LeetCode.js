@@ -8,8 +8,6 @@ import { MotionCamera } from '../components/MotionCamera'
 import { TensorFlow } from '../components/TensorFlow'
 import { MenuContext } from '../hooks/MenuHook'
 import { ButtonStyle } from './ButtonStyle'
-import { useProgress } from '@react-three/drei'
-import { Loading } from '../components/Loading'
 
 export const LeetCode = ({name, year, success, setTaskComplete}) => {
   const [convertedData, setConvertedData] = useState()
